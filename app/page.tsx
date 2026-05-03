@@ -57,14 +57,6 @@ export default function Home() {
               }}>
                 Commencer — c&apos;est gratuit
               </a>
-              <a href="#comment" style={{
-                background: "rgba(255,255,255,0.18)", color: "#fff", fontWeight: 800, fontSize: 15,
-                padding: "15px 28px", borderRadius: 16, textDecoration: "none",
-                border: "2px solid rgba(255,255,255,0.45)", display: "inline-block",
-                letterSpacing: 0.5, textTransform: "uppercase",
-              }}>
-                En savoir plus
-              </a>
             </div>
           </div>
 
@@ -83,10 +75,10 @@ export default function Home() {
           </div>
         </div>
 
-        <div style={{ position: "absolute", bottom: 20, left: "50%", transform: "translateX(-50%)", color: "#fff", opacity: 0.6, fontSize: 13, fontWeight: 900, letterSpacing: 3, textTransform: "uppercase", textAlign: "center" }}>
+        <a href="#comment" style={{ position: "absolute", bottom: 20, left: "50%", transform: "translateX(-50%)", color: "#fff", opacity: 0.6, fontSize: 13, fontWeight: 900, letterSpacing: 3, textTransform: "uppercase", textAlign: "center", textDecoration: "none", display: "block" }}>
           <div>En savoir plus</div>
           <div style={{ fontSize: 22 }}>&#8964;</div>
-        </div>
+        </a>
       </section>
 
       {/* BAND */}
@@ -118,37 +110,33 @@ export default function Home() {
           <div className="grid-3" style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 24 }}>
             {[
               {
-                icon: "→", color: "#4db6f5", label: "Efficace",
+                color: "#4db6f5", label: "Efficace",
                 items: [
                   { title: "Niveau débutant à avancé", desc: "Des cours du CP à la Terminale, adaptés à chaque apprenant pour progresser vite." },
                   { title: "Une efficacité prouvée", desc: "Méthode par répétition espacée et gamification validée scientifiquement." },
                 ]
               },
               {
-                icon: "★", color: "#ff9800", label: "Motivant",
+                color: "#ff9800", label: "Motivant",
                 items: [
                   { title: "Des leçons courtes", desc: "5 à 10 minutes par jour suffisent. Apprends même pendant tes pauses." },
                   { title: "Une démarche positive", desc: "On célèbre chaque progrès pour que tu gardes la flamme jour après jour." },
                 ]
               },
               {
-                icon: "◉", color: "#4caf50", label: "Africain",
+                color: "#4caf50", label: "Africain",
                 items: [
                   { title: "Progresser ensemble", desc: "Suis tes amis, envoie des encouragements, grimpe dans le classement africain." },
                   { title: "S'affronter en ligue", desc: "Des ligues hebdomadaires avec des apprenants de tout le continent." },
                 ]
               },
-            ].map(({ icon, color, label, items }) => (
+            ].map(({ color, label, items }) => (
               <div key={label} className="card-hover" style={{ border: "2px solid #e5e7eb", borderRadius: 20, overflow: "hidden", background: "#fff" }}>
                 <div style={{ padding: "28px 28px 20px", borderBottom: "2px solid #f3f4f6" }}>
                   <div style={{
-                    width: 76, height: 76, borderRadius: "50%",
-                    background: `${color}15`, border: `3px solid ${color}35`,
-                    display: "flex", alignItems: "center", justifyContent: "center",
-                    fontSize: 30, color, fontWeight: 900, marginBottom: 16,
-                  }}>
-                    {icon}
-                  </div>
+                    width: 48, height: 6, borderRadius: 4,
+                    background: color, marginBottom: 20,
+                  }} />
                   <p style={{ fontWeight: 900, fontSize: 24, color, margin: 0 }}>{label}</p>
                 </div>
                 <div style={{ padding: "22px 28px 30px" }}>
@@ -219,15 +207,15 @@ export default function Home() {
           </h2>
           <div className="grid-3" style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 20 }}>
             {[
-              { icon: "◈", title: "Séries quotidiennes", desc: "Construis une habitude solide avec des rappels intelligents et ton streak visible chaque jour.", color: "#ff5722" },
-              { icon: "◆", title: "Système XP", desc: "Gagne des points d'expérience à chaque leçon et monte de division en division.", color: "#ff9800" },
-              { icon: "▲", title: "Classement africain", desc: "Rivalise avec des apprenants de Côte d'Ivoire, du Sénégal, du Ghana et de toute l'Afrique.", color: "#f59e0b" },
-              { icon: "◎", title: "Quêtes & défis", desc: "Des missions quotidiennes et hebdomadaires pour débloquer des récompenses exclusives.", color: "#4caf50" },
-              { icon: "◯", title: "Langues africaines", desc: "Dioula, Wolof, Twi, Yoruba — apprends les langues de chez toi que Duolingo n'enseigne pas.", color: "#4db6f5" },
-              { icon: "▣", title: "100% mobile", desc: "Conçu pour les smartphones africains. Fonctionne même avec une connexion limitée.", color: "#9c27b0" },
-            ].map(({ icon, title, desc, color }) => (
+              { title: "Séries quotidiennes", desc: "Construis une habitude solide avec des rappels intelligents et ton streak visible chaque jour.", color: "#ff5722" },
+              { title: "Système XP", desc: "Gagne des points d'expérience à chaque leçon et monte de division en division.", color: "#ff9800" },
+              { title: "Classement africain", desc: "Rivalise avec des apprenants de Côte d'Ivoire, du Sénégal, du Ghana et de toute l'Afrique.", color: "#f59e0b" },
+              { title: "Quêtes & défis", desc: "Des missions quotidiennes et hebdomadaires pour débloquer des récompenses exclusives.", color: "#4caf50" },
+              { title: "Langues africaines", desc: "Dioula, Wolof, Twi, Yoruba — apprends les langues de chez toi que Duolingo n'enseigne pas.", color: "#4db6f5" },
+              { title: "100% mobile", desc: "Conçu pour les smartphones africains. Fonctionne même avec une connexion limitée.", color: "#9c27b0" },
+            ].map(({ title, desc, color }) => (
               <div key={title} className="card-hover" style={{ background: "#f9fafb", borderRadius: 20, padding: "28px 24px", border: "2px solid #e5e7eb", cursor: "pointer" }}>
-                <div style={{ fontSize: 32, color, marginBottom: 16, fontWeight: 900 }}>{icon}</div>
+                <div style={{ width: 40, height: 5, borderRadius: 3, background: color, marginBottom: 18 }} />
                 <h3 style={{ fontWeight: 900, fontSize: 16, color: "#1a1a1a", margin: "0 0 10px" }}>{title}</h3>
                 <p style={{ color: "#6b7280", fontSize: 13, lineHeight: 1.65, margin: 0 }}>{desc}</p>
               </div>
