@@ -13,7 +13,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "^Learnly le site ",
+  title: "Learnly le site ",
   description: "Learnly le site ",
 };
 
