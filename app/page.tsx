@@ -29,7 +29,7 @@ export default function Home() {
       </nav>
 
       {/* HERO */}
-      <section style={{ background: "#4db6f5", minHeight: "88vh", display: "flex", alignItems: "center", position: "relative", overflow: "hidden" }}>
+      <section style={{ background: "#4db6f5", minHeight: "88vh", display: "flex", alignItems: "center", position: "relative" }}>
         <div style={{
           position: "absolute", inset: 0, opacity: 0.07,
           backgroundImage: "radial-gradient(circle, #fff 1.5px, transparent 1.5px)",
@@ -74,27 +74,14 @@ export default function Home() {
             </div>
           </div>
         </div>
+      </section>
 
-        <a href="#comment" style={{ position: "absolute", bottom: 20, left: "50%", transform: "translateX(-50%)", color: "#fff", opacity: 0.6, fontSize: 13, fontWeight: 900, letterSpacing: 3, textTransform: "uppercase", textAlign: "center", textDecoration: "none", display: "block" }}>
+      {/* EN SAVOIR PLUS ANCHOR */}
+      <div style={{ background: "#4db6f5", textAlign: "center", paddingBottom: 20 }}>
+        <a href="#comment" style={{ color: "#fff", opacity: 0.6, fontSize: 13, fontWeight: 900, letterSpacing: 3, textTransform: "uppercase", textDecoration: "none", display: "inline-block" }}>
           <div>En savoir plus</div>
           <div style={{ fontSize: 22 }}>&#8964;</div>
         </a>
-      </section>
-
-      {/* BAND */}
-      <div style={{ background: "#fff700", padding: "13px 0", overflow: "hidden", borderTop: "3px solid rgba(0,0,0,0.08)", borderBottom: "3px solid rgba(0,0,0,0.08)" }}>
-        <div className="band-track">
-          {[...Array(2)].map((_, rep) => (
-            <div key={rep} style={{ display: "flex", alignItems: "center" }}>
-              {["Langues africaines", "50+ cours gratuits", "Classement mondial", "Défis quotidiens", "Du CP au BAC", "Dev informatique", "4.9/5 de satisfaction"].map((item, i) => (
-                <div key={`${rep}-${i}`} style={{ display: "flex", alignItems: "center", gap: 12, padding: "0 32px", whiteSpace: "nowrap" }}>
-                  <span style={{ fontWeight: 900, fontSize: 15, color: "#1a1a1a" }}>{item}</span>
-                  <span style={{ color: "#1a1a1a", opacity: 0.25, fontSize: 20 }}>•</span>
-                </div>
-              ))}
-            </div>
-          ))}
-        </div>
       </div>
 
       {/* 3 PILIERS */}
