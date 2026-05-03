@@ -243,7 +243,7 @@ export default function Home() {
                   ))}
                 </ul>
                 <a
-                  href="https://wa.me/0700601174"
+                  href="https://wa.me/+225 0700601174"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="btn btn-outline border-blue-400 text-blue-400 hover:bg-blue-400 hover:text-white w-full rounded-lg font-bold mt-8 hover:scale-105 transition-all duration-300 active:scale-95"
@@ -293,7 +293,7 @@ export default function Home() {
                   ))}
                 </ul>
                 <a
-                  href="https://wa.me/0700601174"
+                  href="https://wa.me/+225 0700601174"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="btn bg-blue-400 text-white hover:bg-blue-500 border-0 w-full rounded-lg font-extrabold mt-8 hover:scale-105 transition-all duration-300 active:scale-95 hover:shadow-lg hover:shadow-blue-400/25"
@@ -337,7 +337,7 @@ export default function Home() {
                   ))}
                 </ul>
                 <a
-                  href="https://wa.me/0700601174"
+                  href="https://wa.me/+225 0700601174"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="btn btn-outline border-blue-400 text-blue-400 hover:bg-blue-400 hover:text-white w-full rounded-lg font-bold mt-8 hover:scale-105 transition-all duration-300 active:scale-95"
@@ -360,7 +360,7 @@ export default function Home() {
               </p>
             </div>
             <a 
-              href="https://wa.me/0700601174"
+              href="https://wa.me/+225 0700601174"
               target="_blank"
               rel="noopener noreferrer"
               className="btn btn-ghost btn-sm font-bold text-blue-400 shrink-0 hover:scale-105 transition-all duration-300 hover:bg-blue-400/10"
