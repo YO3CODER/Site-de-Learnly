@@ -39,7 +39,7 @@ export default function Home() {
             className="btn bg-blue-400 text-white hover:bg-blue-500 border-0 btn-sm font-bold rounded-lg px-5 hover:scale-105 transition-all duration-300 hover:shadow-lg hover:shadow-blue-400/25 active:scale-95"
             href="https://learnlyv2.yosite.fun/"
           >
-            Accéder à la plateforme
+            Plateforme
           </a>
         </div>
       </div>
