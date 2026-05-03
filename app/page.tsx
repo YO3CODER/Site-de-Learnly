@@ -13,15 +13,15 @@ export default function Home() {
             <span style={{ fontSize: 22, fontWeight: 900, color: "#4db6f5", letterSpacing: -0.5 }}>Learnly</span>
           </div>
           <ul className="nav-links" style={{ display: "flex", gap: 28, listStyle: "none", margin: 0, padding: 0 }}>
-            {[["Fonctionnalités", "#fonctionnalites"], ["Tarifs", "#tarifs"], ["Témoignages", "#temoignages"]].map(([label, href]) => (
+            {[["Fonctionnalités", "#fonctionnalites"], ["Tarifs", "#tarifs"]].map(([label, href]) => (
               <li key={label}><a href={href} style={{ fontWeight: 700, color: "#374151", textDecoration: "none", fontSize: 15 }}>{label}</a></li>
             ))}
           </ul>
-          <a href="https://learnlyv2.yosite.fun/" style={{
+          <a href="https://learnlyv2.yosite.fun/" className="btn-bounce" style={{
             background: "#4db6f5", color: "#fff", fontWeight: 900, fontSize: 14,
             padding: "11px 20px", borderRadius: 12, border: "none", cursor: "pointer",
             textDecoration: "none", letterSpacing: 0.5, textTransform: "uppercase",
-            boxShadow: "0 4px 0 #2193d3", display: "inline-block", whiteSpace: "nowrap",
+            boxShadow: "0 4px 0 #2193d3", whiteSpace: "nowrap",
           }}>
             Commencer
           </a>
@@ -49,11 +49,11 @@ export default function Home() {
               Du CP au BAC, des langues africaines au développement web — la plateforme 100% gratuite pensée pour toi.
             </p>
             <div style={{ display: "flex", gap: 14, flexWrap: "wrap" }}>
-              <a href="https://learnlyv2.yosite.fun/" style={{
+              <a href="https://learnlyv2.yosite.fun/" className="btn-bounce" style={{
                 background: "#fff", color: "#4db6f5", fontWeight: 900, fontSize: 15,
                 padding: "15px 32px", borderRadius: 16, textDecoration: "none",
                 boxShadow: "0 6px 0 rgba(0,0,0,0.15)", letterSpacing: 0.5,
-                textTransform: "uppercase", display: "inline-block",
+                textTransform: "uppercase",
               }}>
                 Commencer — c&apos;est gratuit
               </a>
@@ -244,7 +244,7 @@ export default function Home() {
               <p style={{ fontWeight: 900, fontSize: 17, color: "#fff", margin: "0 0 4px" }}>La plateforme Learnly est 100% gratuite</p>
               <p style={{ color: "rgba(255,255,255,0.8)", fontSize: 14, margin: 0 }}>Cours, classements, quêtes, défis — tout ça sans dépenser un franc.</p>
             </div>
-            <a href="https://learnlyv2.yosite.fun/" style={{
+            <a href="https://learnlyv2.yosite.fun/" className="btn-bounce" style={{
               background: "#fff", color: "#4db6f5", fontWeight: 900, fontSize: 14,
               padding: "12px 28px", borderRadius: 12, textDecoration: "none",
               boxShadow: "0 4px 0 rgba(0,0,0,0.12)", textTransform: "uppercase",
@@ -288,7 +288,7 @@ export default function Home() {
                       </li>
                     ))}
                   </ul>
-                  <a href="https://wa.me/+2250700601174" target="_blank" rel="noopener noreferrer" style={{
+                  <a href="https://wa.me/+2250700601174" target="_blank" rel="noopener noreferrer" className="btn-bounce" style={{
                     display: "block", textAlign: "center",
                     background: popular ? color : "#fff",
                     color: popular ? "#fff" : color,
@@ -310,53 +310,13 @@ export default function Home() {
               <p style={{ fontWeight: 800, fontSize: 15, color: "#1a1a1a", margin: "0 0 4px" }}>Des questions sur les cours privés ?</p>
               <p style={{ color: "#6b7280", fontSize: 13, margin: 0 }}>Nos conseillers sont disponibles sur WhatsApp.</p>
             </div>
-            <a href="https://wa.me/+2250700601174" target="_blank" rel="noopener noreferrer" style={{
-              background: "#25d366", color: "#fff", fontWeight: 900, fontSize: 14,
+            <a href="https://wa.me/+2250700601174" target="_blank" rel="noopener noreferrer" className="btn-bounce" style={{background: "#25d366", color: "#fff", fontWeight: 900, fontSize: 14,
               padding: "12px 24px", borderRadius: 12, textDecoration: "none",
               textTransform: "uppercase", letterSpacing: 0.5, whiteSpace: "nowrap",
               boxShadow: "0 4px 0 #1da851",
             }}>
               WhatsApp
             </a>
-          </div>
-        </div>
-      </section>
-
-      {/* TESTIMONIALS */}
-      <section id="temoignages" style={{ background: "#fff", padding: "80px 20px", borderTop: "3px solid #e5e7eb" }}>
-        <div style={{ maxWidth: 1100, margin: "0 auto" }}>
-          <p style={{ textAlign: "center", fontSize: 12, fontWeight: 900, letterSpacing: 4, color: "#4db6f5", textTransform: "uppercase", marginBottom: 12 }}>Témoignages</p>
-          <h2 style={{ textAlign: "center", fontSize: "clamp(24px, 4vw, 44px)", fontWeight: 900, color: "#1a1a1a", marginBottom: 56, letterSpacing: -0.5 }}>
-            ce que disent nos apprenants
-          </h2>
-          <div className="grid-3" style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 20 }}>
-            {[
-              { name: "Kouassi A.", role: "Élève en Terminale", text: "Grâce aux cours privés de Learnly, j'ai amélioré mes notes en maths en seulement 2 mois. L'enseignant est hyper disponible.", avatar: "K", color: "#4db6f5" },
-              { name: "Fatou D.", role: "Parent d'élève", text: "Ma fille en CM2 adore la plateforme. Elle fait ses leçons chaque soir comme un jeu. Le rapport mensuel est vraiment pratique.", avatar: "F", color: "#ff9800" },
-              { name: "Yves K.", role: "Étudiant en développement", text: "La formation dev web m'a permis de décrocher mon premier stage. Les projets pratiques font vraiment la différence.", avatar: "Y", color: "#4caf50" },
-            ].map(({ name, role, text, avatar, color }) => (
-              <div key={name} className="card-hover" style={{ background: "#f9fafb", borderRadius: 20, padding: "28px 24px", border: "2px solid #e5e7eb" }}>
-                <div style={{ display: "flex", gap: 3, marginBottom: 18 }}>
-                  {Array(5).fill(0).map((_, i) => <span key={i} style={{ color: "#fbbf24", fontSize: 20 }}>★</span>)}
-                </div>
-                <p style={{ color: "#374151", fontSize: 14, lineHeight: 1.75, marginBottom: 24, fontStyle: "italic" }}>
-                  &ldquo;{text}&rdquo;
-                </p>
-                <div style={{ display: "flex", alignItems: "center", gap: 14 }}>
-                  <div style={{
-                    width: 46, height: 46, borderRadius: "50%", background: `${color}18`,
-                    border: `2px solid ${color}35`, display: "flex", alignItems: "center",
-                    justifyContent: "center", fontWeight: 900, color, fontSize: 20,
-                  }}>
-                    {avatar}
-                  </div>
-                  <div>
-                    <p style={{ fontWeight: 900, fontSize: 14, color: "#1a1a1a", margin: "0 0 2px" }}>{name}</p>
-                    <p style={{ color: "#9ca3af", fontSize: 12, margin: 0 }}>{role}</p>
-                  </div>
-                </div>
-              </div>
-            ))}
           </div>
         </div>
       </section>
@@ -375,14 +335,14 @@ export default function Home() {
             Rejoins Learnly gratuitement et commence ta première leçon en moins de 2 minutes. Aucune carte bancaire requise.
           </p>
           <div style={{ display: "flex", gap: 16, justifyContent: "center", flexWrap: "wrap" }}>
-            <a href="https://learnlyv2.yosite.fun/" style={{
+            <a href="https://learnlyv2.yosite.fun/" className="btn-bounce" style={{
               background: "#fff", color: "#4db6f5", fontWeight: 900, fontSize: 16,
               padding: "18px 40px", borderRadius: 16, textDecoration: "none",
               boxShadow: "0 6px 0 rgba(0,0,0,0.15)", textTransform: "uppercase", letterSpacing: 0.5,
             }}>
               Commencer — c&apos;est gratuit
             </a>
-            <a href="#tarifs" style={{
+            <a href="#tarifs" className="btn-bounce" style={{
               background: "rgba(255,255,255,0.15)", color: "#fff", fontWeight: 800, fontSize: 16,
               padding: "18px 32px", borderRadius: 16, textDecoration: "none",
               border: "2px solid rgba(255,255,255,0.45)", textTransform: "uppercase", letterSpacing: 0.5,
@@ -472,6 +432,28 @@ export default function Home() {
           }
         }
       `}</style>
+
+      {/* BOUNCE SCRIPT */}
+      <script dangerouslySetInnerHTML={{ __html: `
+        document.addEventListener('DOMContentLoaded', function() {
+          function applyBounce(el) {
+            el.addEventListener('mousedown', function() {
+              this.style.transition = 'transform 0.1s ease, box-shadow 0.1s ease';
+              this.style.transform = 'translateY(5px) scale(0.95)';
+              this.style.boxShadow = 'none';
+            });
+            el.addEventListener('mouseup', function() {
+              this.style.transition = 'transform 0.4s cubic-bezier(0.34, 1.7, 0.64, 1), box-shadow 0.3s ease';
+              this.style.transform = 'translateY(0px) scale(1)';
+            });
+            el.addEventListener('mouseleave', function() {
+              this.style.transition = 'transform 0.3s ease';
+              this.style.transform = 'translateY(0px) scale(1)';
+            });
+          }
+          document.querySelectorAll('.btn-bounce').forEach(applyBounce);
+        });
+      `}} />
 
     </div>
   );
