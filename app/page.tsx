@@ -450,7 +450,10 @@ export default function Home() {
             text-align: center;
           }
           .hero-image {
-            display: none !important;
+            display: flex !important;
+            width: 100%;
+            max-width: 340px;
+            margin: 0 auto;
           }
           .two-col {
             grid-template-columns: 1fr !important;
@@ -474,7 +477,10 @@ export default function Home() {
             grid-template-columns: 1fr !important;
           }
           .gif-badge {
-            display: none !important;
+            display: inline-block !important;
+          }
+          .hero-image {
+            max-width: 280px !important;
           }
         }
       `}</style>
