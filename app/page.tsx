@@ -1,4 +1,5 @@
 import Image from "next/image";
+import "./globals.css";
 
 export default function Home() {
   return (
@@ -15,7 +16,7 @@ export default function Home() {
               height={36} 
               className="group-hover:animate-bounce transition-transform duration-300" 
             />
-            <span className="text-xl font-extrabold text-blue-400 tracking-tight hover:scale-105 transition-transform duration-300 inline-block">
+            <span className="text-xl font-extrabold text-blue-400 tracking-tight hover:scale-105 transition-transform duration-300 inline-block shimmer-text">
               Learnly
             </span>
           </div>
@@ -36,7 +37,7 @@ export default function Home() {
         </div>
         <div className="navbar-end gap-3">
           <a
-            className="btn bg-blue-400 text-white hover:bg-blue-500 border-0 btn-sm font-bold rounded-lg px-5 hover:scale-105 transition-all duration-300 hover:shadow-lg hover:shadow-blue-400/25 active:scale-95"
+            className="btn bg-blue-400 text-white hover:bg-blue-500 border-0 btn-sm font-bold rounded-lg px-5 hover:scale-105 transition-all duration-300 hover:shadow-lg hover:shadow-blue-400/25 active:scale-95 animate-pulse-glow"
             href="https://learnlyv2.yosite.fun/"
           >
             Plateforme
@@ -45,21 +46,21 @@ export default function Home() {
       </div>
 
       {/* HERO */}
-      <section id="accueil" className="bg-base-100 py-0">
+      <section id="accueil" className="bg-base-100 py-0 overflow-hidden">
         <div className="max-w-7xl mx-auto px-8 grid grid-cols-1 lg:grid-cols-2 min-h-[88vh] items-center gap-12">
           <div className="py-16">
-            <p className="text-xs font-extrabold uppercase tracking-[4px] text-blue-400 mb-4">
+            <p className="text-xs font-extrabold uppercase tracking-[4px] text-blue-400 mb-4 animate-fade-up">
               Plateforme d&apos;apprentissage 
             </p>
-            <h1 className="text-5xl lg:text-6xl font-extrabold leading-[1.1] text-base-content mb-6">
+            <h1 className="text-5xl lg:text-6xl font-extrabold leading-[1.1] text-base-content mb-6 animate-fade-up-delay-1">
               Apprenez.<br />
               Progressez.<br />
               <span className="text-blue-400 inline-block hover:scale-110 transition-transform duration-300">Excellez.</span>
             </h1>
-            <p className="text-base-content/60 text-lg leading-relaxed mb-10 max-w-md">
+            <p className="text-base-content/60 text-lg leading-relaxed mb-10 max-w-md animate-fade-up-delay-2">
               Learnly est la plateforme interactive et gratuite qui transforme l&apos;apprentissage en expérience engageante. Du primaire aux formations professionnelles en développement informatique.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4">
+            <div className="flex flex-col sm:flex-row gap-4 animate-fade-up-delay-3">
               <a
                 href="https://learnlyv2.yosite.fun/"
                 className="btn bg-blue-400 text-white hover:bg-blue-500 border-0 btn-lg font-bold rounded-lg px-8 text-sm tracking-wide hover:scale-105 transition-all duration-300 hover:shadow-xl hover:shadow-blue-400/30 active:scale-95"
@@ -75,7 +76,7 @@ export default function Home() {
             </div>
 
             {/* Stats inline */}
-            <div className="flex items-center gap-8 mt-12 pt-8 border-t border-base-300">
+            <div className="flex items-center gap-8 mt-12 pt-8 border-t border-base-300 animate-fade-up-delay-3">
               {[
                 { value: "100%", label: "Gratuit" },
                 { value: "50+", label: "Cours disponibles" },
@@ -89,38 +90,60 @@ export default function Home() {
             </div>
           </div>
 
-          {/* Image hero.svg */}
-          <div className="flex items-center justify-center relative mt-8 lg:mt-0">
+          {/* Image hero + GIF 1 */}
+          <div className="flex items-center justify-center relative mt-8 lg:mt-0 animate-fade-right">
+            {/* Blob décoratif animé */}
+            <div className="absolute w-72 h-72 bg-blue-400/10 animate-blob" style={{top: '10%', right: '5%'}} />
+            <div className="absolute w-48 h-48 bg-blue-300/10 animate-blob-delay" style={{bottom: '10%', left: '5%'}} />
+
             <div className="absolute inset-0 bg-blue-400/5 rounded-3xl" />
             <div className="absolute top-10 right-10 w-64 h-64 bg-blue-400/10 rounded-full blur-3xl" />
-            <Image
-              src="/hero.svg"
-              alt="Hero"
-              width={480}
-              height={480}
-              className="relative drop-shadow-2xl z-10 w-full max-w-[300px] sm:max-w-[400px] lg:max-w-[480px] h-auto hover:scale-105 transition-transform duration-500"
-            />
+            
+            <div className="relative z-10 flex flex-col items-center gap-4">
+              <Image
+                src="/hero.svg"
+                alt="Hero"
+                width={480}
+                height={480}
+                className="animate-float drop-shadow-2xl w-full max-w-[300px] sm:max-w-[400px] lg:max-w-[420px] h-auto"
+              />
+              {/* GIF 1 — flottant sous le hero */}
+              <div className="gif-badge animate-float-delayed">
+                <Image
+                  src="/1.gif"
+                  alt="Animation apprentissage"
+                  width={220}
+                  height={130}
+                  unoptimized
+                  className="rounded-2xl"
+                />
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* BAND */}
+      {/* BAND — scroll infini */}
       <div className="bg-blue-400 py-4 overflow-hidden">
-        <div className="max-w-7xl mx-auto px-8 flex flex-wrap items-center justify-between gap-4">
-          {[
-            "Plateforme 100% gratuite",
-            "Du primaire au secondaire",
-            "Formations informatiques",
-            "Suivi de progression",
-            "Classement mondial",
-            "Défis quotidiens",
-          ].map((item, i) => (
-            <div 
-              key={i} 
-              className="flex items-center gap-2 hover:scale-105 transition-transform duration-300"
-            >
-              <div className="w-1.5 h-1.5 rounded-full bg-white/60" />
-              <span className="text-white font-semibold text-sm">{item}</span>
+        <div className="band-track">
+          {[...Array(2)].map((_, rep) => (
+            <div key={rep} className="flex items-center gap-0">
+              {[
+                "Plateforme 100% gratuite",
+                "Du primaire au secondaire",
+                "Formations informatiques",
+                "Suivi de progression",
+                "Classement mondial",
+                "Défis quotidiens",
+              ].map((item, i) => (
+                <div 
+                  key={`${rep}-${i}`}
+                  className="flex items-center gap-3 px-8 hover:scale-105 transition-transform duration-300 shrink-0"
+                >
+                  <div className="w-1.5 h-1.5 rounded-full bg-white/60" />
+                  <span className="text-white font-semibold text-sm whitespace-nowrap">{item}</span>
+                </div>
+              ))}
             </div>
           ))}
         </div>
@@ -130,16 +153,30 @@ export default function Home() {
       <section id="fonctionnalites" className="py-24 bg-base-200">
         <div className="max-w-7xl mx-auto px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-            <div>
+            <div className="animate-fade-left">
               <p className="text-xs font-extrabold uppercase tracking-[4px] text-blue-400 mb-3">
                 Fonctionnalités
               </p>
               <h2 className="text-4xl font-extrabold text-base-content mb-6 leading-tight">
                 Tout ce dont vous avez besoin pour apprendre efficacement
               </h2>
-              <p className="text-base-content/60 text-base leading-relaxed mb-10">
+              <p className="text-base-content/60 text-base leading-relaxed mb-6">
                 Learnly combine les meilleures techniques pédagogiques avec la gamification pour rendre l&apos;apprentissage motivant et durable. La plateforme est entièrement gratuite.
               </p>
+
+              {/* GIF 2 — dans la section features */}
+              <div className="gif-badge mb-8 inline-block">
+                <Image
+                  src="/2.gif"
+                  alt="Fonctionnalités en action"
+                  width={260}
+                  height={150}
+                  unoptimized
+                  className="rounded-2xl"
+                />
+              </div>
+
+              <br />
               <a
                 href="https://learnlyv2.yosite.fun/"
                 className="btn bg-blue-400 text-white hover:bg-blue-500 border-0 font-bold rounded-lg px-8 hover:scale-105 transition-all duration-300 hover:shadow-lg hover:shadow-blue-400/25 active:scale-95 inline-block"
@@ -156,10 +193,11 @@ export default function Home() {
                 { title: "Quêtes", desc: "Relevez des défis quotidiens et hebdomadaires pour débloquer des récompenses exclusives." },
                 { title: "Cours structurés", desc: "Du primaire au secondaire et jusqu'aux formations professionnelles en informatique." },
                 { title: "Multi-cours", desc: "Apprenez plusieurs matières simultanément, à votre rythme, depuis n'importe quel appareil." },
-              ].map(({ title, desc }) => (
+              ].map(({ title, desc }, i) => (
                 <div
                   key={title}
-                  className="bg-base-100 rounded-2xl p-5 border border-base-300 hover:border-blue-400 hover:shadow-md transition-all duration-200 group hover:-translate-y-1 cursor-pointer"
+                  className="bg-base-100 rounded-2xl p-5 border border-base-300 hover:border-blue-400 hover:shadow-md transition-all duration-200 group hover:-translate-y-1 cursor-pointer card-hover"
+                  style={{ animationDelay: `${i * 0.08}s` }}
                 >
                   <div className="flex items-center gap-2 mb-3">
                     <div className="w-2 h-2 rounded-full bg-blue-400 group-hover:scale-125 transition-transform" />
@@ -177,7 +215,7 @@ export default function Home() {
       <section id="tarifs" className="py-24 bg-base-100">
         <div className="max-w-7xl mx-auto px-8">
 
-          <div className="text-center mb-6">
+          <div className="text-center mb-6 animate-fade-up">
             <p className="text-xs font-extrabold uppercase tracking-[4px] text-blue-400 mb-3">
               Cours privés
             </p>
@@ -211,7 +249,7 @@ export default function Home() {
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
 
             {/* Primaire */}
-            <div className="rounded-2xl border border-base-300 bg-base-100 overflow-hidden flex flex-col hover:shadow-xl transition-all duration-300 hover:-translate-y-2 group">
+            <div className="rounded-2xl border border-base-300 bg-base-100 overflow-hidden flex flex-col card-hover group">
               <div className="bg-base-200 px-8 py-6 border-b border-base-300 group-hover:bg-base-300/50 transition-colors duration-300">
                 <p className="text-xs font-extrabold uppercase tracking-[3px] text-base-content/50 mb-1">
                   Cours privé
@@ -254,7 +292,7 @@ export default function Home() {
             </div>
 
             {/* Secondaire — highlighted */}
-            <div className="rounded-2xl border-2 border-blue-400 bg-base-100 overflow-hidden flex flex-col relative shadow-xl shadow-blue-400/10 hover:shadow-2xl hover:shadow-blue-400/20 transition-all duration-300 hover:-translate-y-2 group">
+            <div className="rounded-2xl border-2 border-blue-400 bg-base-100 overflow-hidden flex flex-col relative shadow-xl shadow-blue-400/10 card-hover group" style={{boxShadow: '0 8px 32px -4px rgba(96,165,250,0.18)'}}>
               <div className="absolute top-0 left-0 right-0 h-1 bg-blue-400" />
               <div className="bg-blue-400 px-8 py-6 border-b border-blue-400/30 group-hover:bg-blue-500 transition-colors duration-300">
                 <div className="flex items-center justify-between mb-1">
@@ -304,7 +342,7 @@ export default function Home() {
             </div>
 
             {/* Dev informatique */}
-            <div className="rounded-2xl border border-base-300 bg-base-100 overflow-hidden flex flex-col hover:shadow-xl transition-all duration-300 hover:-translate-y-2 group">
+            <div className="rounded-2xl border border-base-300 bg-base-100 overflow-hidden flex flex-col card-hover group">
               <div className="bg-base-200 px-8 py-6 border-b border-base-300 group-hover:bg-base-300/50 transition-colors duration-300">
                 <p className="text-xs font-extrabold uppercase tracking-[3px] text-base-content/50 mb-1">
                   Cours privé
@@ -387,14 +425,14 @@ export default function Home() {
             ].map(({ name, role, text }) => (
               <div 
                 key={name} 
-                className="bg-base-100 rounded-2xl p-6 border border-base-300 hover:shadow-xl transition-all duration-300 hover:-translate-y-2 group"
+                className="bg-base-100 rounded-2xl p-6 border border-base-300 card-hover group"
               >
                 <div className="flex gap-1 mb-4">
                   {Array(5).fill(0).map((_, i) => (
                     <div 
                       key={i} 
                       className="w-3 h-3 rounded-full bg-blue-400 opacity-80 group-hover:scale-110 transition-transform duration-200"
-                      style={{transitionDelay: `${i * 0.1}s`}}
+                      style={{transitionDelay: `${i * 0.08}s`}}
                     />
                   ))}
                 </div>
@@ -418,6 +456,10 @@ export default function Home() {
 
       {/* CTA FINAL */}
       <section className="py-24 bg-blue-400 relative overflow-hidden">
+        {/* Cercles décoratifs animés */}
+        <div className="absolute top-[-60px] left-[-60px] w-72 h-72 rounded-full bg-white/5 animate-blob" />
+        <div className="absolute bottom-[-40px] right-[-40px] w-56 h-56 rounded-full bg-white/5 animate-blob-delay" />
+
         <div className="max-w-4xl mx-auto px-8 text-center relative z-10">
           <p className="text-xs font-extrabold uppercase tracking-[4px] text-white/60 mb-4">
             Commencez aujourd&apos;hui
@@ -458,7 +500,7 @@ export default function Home() {
                   height={28} 
                   className="group-hover:animate-bounce transition-transform duration-300" 
                 />
-                <span className="font-extrabold text-blue-400 text-lg hover:scale-105 transition-transform duration-300 inline-block">Learnly</span>
+                <span className="font-extrabold text-blue-400 text-lg hover:scale-105 transition-transform duration-300 inline-block shimmer-text">Learnly</span>
               </div>
               <p className="text-base-content/50 text-sm leading-relaxed">
                 La plateforme d&apos;apprentissage interactif et gratuite. Du primaire aux formations professionnelles en développement informatique.
