@@ -29,6 +29,6 @@
     ".next/types/**/*.ts",
     ".next/dev/types/**/*.ts",
     "**/*.mts"
-, "app/agrotech/page.jsx"  ],
+, "app/agrotech/page.tsx"  ],
   "exclude": ["node_modules"]
 }

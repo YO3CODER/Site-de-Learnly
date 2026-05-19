@@ -18,8 +18,7 @@ export default function Home() {
             ))}
           </ul>
           <div style={{ display: "flex", gap: 10, alignItems: "center" }}>
-            {/* BOUTON AGROTECH */}
-            <a href="/agrotech" className="btn-bounce desktop-cta" style={{
+             <a href="/agrotech" className="btn-bounce desktop-cta" style={{
               background: "linear-gradient(135deg, #1a1200, #2d1f00)",
               color: "#f5a623", fontWeight: 900, fontSize: 13,
               padding: "10px 18px", borderRadius: 12,
@@ -27,8 +26,36 @@ export default function Home() {
               textDecoration: "none", letterSpacing: 0.3, textTransform: "uppercase",
               whiteSpace: "nowrap", display: "flex", alignItems: "center", gap: 6,
             }}>
-              🥭 AgroTech
+               AgroTech
             </a>
+            {/* BOUTON AGROTECH */}
+        
+<a 
+  href="https://www.tiktok.com/@learnlyagrotech?is_from_webapp=1&sender_device=pc" 
+  className="btn-bounce desktop-cta" 
+  style={{
+    background: "#ffffff",
+    color: "#f5a623", 
+    fontWeight: 900, 
+    fontSize: 13,
+    padding: "10px 18px", 
+    borderRadius: 12,
+    border: "1.5px solid rgba(245,166,35,0.45)", 
+    cursor: "pointer",
+    textDecoration: "none", 
+    letterSpacing: 0.3, 
+    textTransform: "uppercase",
+    whiteSpace: "nowrap", 
+    display: "flex", 
+    alignItems: "center", 
+    gap: 6,
+    boxShadow: "0 4px 6px rgba(0, 0, 0, 0.05)", // Ombre douce pour l'aspect moderne
+  }}
+>
+  Soutenir
+</a>
+
+
             <a href="https://learnlyv2.yosite.fun/" className="btn-bounce desktop-cta" style={{
               background: "#4db6f5", color: "#fff", fontWeight: 900, fontSize: 14,
               padding: "11px 20px", borderRadius: 12, border: "none", cursor: "pointer",
@@ -96,8 +123,28 @@ export default function Home() {
               border: "1.5px solid rgba(245,166,35,0.4)", textAlign: "center",
               marginTop: 4,
             }}>
-              🥭 Learnly AgroTech
+               Learnly AgroTech
             </a>
+            <a 
+  href="/agrotech" 
+  style={{
+    background: "#ffffff",
+    color: "#f5a623", 
+    fontWeight: 900, 
+    fontSize: 15,
+    padding: "14px 20px", 
+    borderRadius: 12, 
+    textDecoration: "none",
+    letterSpacing: 0.5, 
+    textTransform: "uppercase",
+    border: "1.5px solid rgba(245,166,35,0.4)", 
+    textAlign: "center",
+    marginTop: 4,
+    boxShadow: "0 4px 6px rgba(0, 0, 0, 0.05)",
+  }}
+>
+  Soutenir
+</a>
             <a href="https://learnlyv2.yosite.fun/" style={{
               background: "#4db6f5", color: "#fff", fontWeight: 900, fontSize: 15,
               padding: "14px 20px", borderRadius: 12, textDecoration: "none",
@@ -147,7 +194,7 @@ export default function Home() {
                 border: "2px solid rgba(245,166,35,0.6)", letterSpacing: 0.5,
                 textTransform: "uppercase", display: "flex", alignItems: "center", gap: 8,
               }}>
-                🥭 AgroTech
+                 AgroTech
               </a>
             </div>
           </div>
@@ -534,7 +581,7 @@ export default function Home() {
                 La plateforme d&apos;apprentissage gratuite pensée pour l&apos;Afrique. Du primaire au dev web.
               </p>
               <a href="/agrotech" style={{ marginTop: 16, display: "inline-flex", alignItems: "center", gap: 6, background: "rgba(245,166,35,0.08)", border: "1px solid rgba(245,166,35,0.22)", borderRadius: 8, padding: "6px 12px", textDecoration: "none" }}>
-                <span style={{ fontSize: 12, fontWeight: 800, color: "#f5a623" }}>🥭 Learnly AgroTech →</span>
+                <span style={{ fontSize: 12, fontWeight: 800, color: "#f5a623" }}>Learnly AgroTech →</span>
               </a>
             </div>
             {[
