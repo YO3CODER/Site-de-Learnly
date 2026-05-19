@@ -71,6 +71,7 @@ export default function AgroTech() {
   return (
     <div className="min-h-screen font-sans">
       {/* NAVBAR */}
+     {/* NAVBAR */}
       <nav
         style={{
           background: "#1a1200",
@@ -91,6 +92,7 @@ export default function AgroTech() {
             height: 64,
           }}
         >
+          {/* LOGO — une seule fois */}
           <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
             <Image
               src="/logo.png"
@@ -99,7 +101,10 @@ export default function AgroTech() {
               height={38}
               style={{ borderRadius: 8 }}
             />
-            <div>
+            <div
+              className="logo-text"
+              style={{ display: "flex", alignItems: "center", gap: 4 }}
+            >
               <span
                 style={{
                   fontSize: 18,
@@ -118,11 +123,12 @@ export default function AgroTech() {
                   letterSpacing: -0.5,
                 }}
               >
-                {" "}
-                AgroTech
+                {" "}AgroTech
               </span>
             </div>
           </div>
+
+          {/* LIENS DESKTOP */}
           <ul
             className="nav-links"
             style={{
@@ -153,50 +159,53 @@ export default function AgroTech() {
               </li>
             ))}
           </ul>
+
+          {/* BOUTONS DESKTOP */}
           <div style={{ display: "flex", gap: 10, alignItems: "center" }}>
             <a
-              href="/"
+             href="/"
+  className="btn-bounce"
+  style={{
+    background: "rgba(77,182,245,0.12)",
+    color: "#4db6f5",
+    fontWeight: 800,
+    fontSize: 13,
+    padding: "10px 18px",
+    borderRadius: 12,
+    border: "1.5px solid rgba(77,182,245,0.4)",
+    cursor: "pointer",
+    textDecoration: "none",
+    letterSpacing: 0.3,
+    display: "flex",
+    alignItems: "center",
+    gap: 6,
+    whiteSpace: "nowrap",
+  }}
+>
+  Learnly
+</a>
+
+            <a
+              href="https://www.tiktok.com/@learnlyagrotech?is_from_webapp=1&sender_device=pc"
               className="btn-bounce"
               style={{
-                background: "rgba(255,255,255,0.08)",
+                background: "#ffffff",
                 color: "#f5a623",
-                fontWeight: 800,
+                fontWeight: 900,
                 fontSize: 13,
                 padding: "10px 18px",
                 borderRadius: 12,
-                border: "1.5px solid rgba(245,166,35,0.4)",
-                cursor: "pointer",
                 textDecoration: "none",
-                letterSpacing: 0.3,
-                display: "flex",
-                alignItems: "center",
-                gap: 6,
+                letterSpacing: 0.5,
+                textTransform: "uppercase",
+                border: "1.5px solid rgba(245,166,35,0.4)",
+                textAlign: "center",
+                boxShadow: "0 4px 6px rgba(0,0,0,0.05)",
                 whiteSpace: "nowrap",
               }}
             >
-               Learnly
+              Soutenir
             </a>
-
-              <a 
-  href="/agrotech" 
-  style={{
-    background: "#ffffff",
-    color: "#f5a623", 
-    fontWeight: 900, 
-    fontSize: 10,
-    padding: "12px 18px", 
-    borderRadius: 12, 
-    textDecoration: "none",
-    letterSpacing: 0.5, 
-    textTransform: "uppercase",
-    border: "1.5px solid rgba(245,166,35,0.4)", 
-    textAlign: "center",
-    marginTop: 1,
-    boxShadow: "0 4px 6px rgba(0, 0, 0, 0.05)",
-  }}
->
-  Soutenir
-</a>
 
             <a
               href="https://wa.me/+2250700601174"
@@ -222,6 +231,7 @@ export default function AgroTech() {
               Nous contacter
             </a>
           </div>
+
           {/* HAMBURGER */}
           <button
             id="hamburger-btn"
@@ -237,42 +247,24 @@ export default function AgroTech() {
               borderRadius: 8,
             }}
           >
-            <span
-              className="ham-bar"
-              style={{
-                display: "block",
-                width: 24,
-                height: 2.5,
-                background: "#f5a623",
-                borderRadius: 2,
-                transition: "all 0.3s",
-              }}
-            />
-            <span
-              className="ham-bar"
-              style={{
-                display: "block",
-                width: 24,
-                height: 2.5,
-                background: "#f5a623",
-                borderRadius: 2,
-                transition: "all 0.3s",
-              }}
-            />
-            <span
-              className="ham-bar"
-              style={{
-                display: "block",
-                width: 24,
-                height: 2.5,
-                background: "#f5a623",
-                borderRadius: 2,
-                transition: "all 0.3s",
-              }}
-            />
+            {[0, 1, 2].map((i) => (
+              <span
+                key={i}
+                className="ham-bar"
+                style={{
+                  display: "block",
+                  width: 24,
+                  height: 2.5,
+                  background: "#f5a623",
+                  borderRadius: 2,
+                  transition: "all 0.3s",
+                }}
+              />
+            ))}
           </button>
         </div>
-        {/* MOBILE MENU */}
+
+        {/* MENU MOBILE */}
         <div
           id="mobile-menu"
           style={{
@@ -315,9 +307,26 @@ export default function AgroTech() {
               </a>
             ))}
             <a
-              href="/"
+             href="/"
+style={{
+  background: "rgba(77,182,245,0.12)",
+  color: "#4db6f5",
+  fontWeight: 900,
+  fontSize: 14,
+  padding: "12px 16px",
+  borderRadius: 10,
+  textDecoration: "none",
+  textAlign: "center",
+  border: "1.5px solid rgba(77,182,245,0.3)",
+  marginTop: 4,
+}}
+>
+  Retour sur Learnly
+</a>
+            <a
+           href="https://www.tiktok.com/@learnlyagrotech?is_from_webapp=1&sender_device=pc"
               style={{
-                background: "rgba(245,166,35,0.12)",
+                background: "#ffffff",
                 color: "#f5a623",
                 fontWeight: 900,
                 fontSize: 14,
@@ -325,11 +334,11 @@ export default function AgroTech() {
                 borderRadius: 10,
                 textDecoration: "none",
                 textAlign: "center",
-                border: "1.5px solid rgba(245,166,35,0.3)",
+                border: "1.5px solid rgba(245,166,35,0.4)",
                 marginTop: 4,
               }}
             >
-              ← Retour sur Learnly
+              Soutenir
             </a>
             <a
               href="https://wa.me/+2250700601174"
@@ -1684,7 +1693,7 @@ export default function AgroTech() {
                   </ul>
 
                   <a
-                    href="/agrotech"
+                    href="https://www.tiktok.com/@learnlyagrotech?is_from_webapp=1&sender_device=pc"
                     style={{
                       background: "#ffffff",
                       color: "#f5a623",
@@ -1918,23 +1927,27 @@ export default function AgroTech() {
               Nous contacter — c&apos;est gratuit
             </a>
             <a
-              href="/"
-              className="btn-bounce"
-              style={{
-                background: "rgba(255,255,255,0.08)",
-                color: "#fff",
-                fontWeight: 800,
-                fontSize: 16,
-                padding: "18px 32px",
-                borderRadius: 16,
-                textDecoration: "none",
-                border: "2px solid rgba(255,255,255,0.25)",
-                textTransform: "uppercase",
-                letterSpacing: 0.5,
-              }}
-            >
-              ← Learnly
-            </a>
+             href="/"
+  className="btn-bounce"
+  style={{
+    background: "rgba(77,182,245,0.12)",
+    color: "#4db6f5",
+    fontWeight: 800,
+    fontSize: 13,
+    padding: "10px 18px",
+    borderRadius: 12,
+    border: "1.5px solid rgba(77,182,245,0.4)",
+    cursor: "pointer",
+    textDecoration: "none",
+    letterSpacing: 0.3,
+    display: "flex",
+    alignItems: "center",
+    gap: 6,
+    whiteSpace: "nowrap",
+  }}
+>
+  Learnly
+</a>
           </div>
         </div>
       </section>
