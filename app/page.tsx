@@ -295,9 +295,9 @@ export default function Home() {
 
           <div className="grid-3" style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 20 }}>
             {[
-              { level: "Primaire", price: "20 000", color: "#4db6f5", shadow: "#2193d3", sub: "CP au CM2 — apprentissage ludique", features: ["Mathématiques", "Lecture et écriture", "Sciences de la vie", "Histoire et géographie", "1 enseignant dédié", "Rapport mensuel parents"], popular: false },
-              { level: "Secondaire", price: "25 000", color: "#ff9800", shadow: "#e65100", sub: "Collège & Lycée — prépa examens incluse", features: ["Maths avancées", "Physique-Chimie", "SVT", "Français & Littérature", "Anglais", "Prépa BEPC et BAC", "1 enseignant dédié", "Corrections illimitées"], popular: true },
-              { level: "Dev informatique", price: "30 000", color: "#4caf50", shadow: "#2e7d32", sub: "Formation professionnelle web & mobile", features: ["HTML, CSS, JS", "React & Next.js", "Node.js & BDD", "Git & bonnes pratiques", "Projets réels", "Mentor senior", "Certification finale"], popular: false },
+              { level: "Primaire", price: "20 000", color: "#4db6f5", shadow: "#2193d3", sub: "CP au CM2 — apprentissage ludique", features: ["Mathématiques", "Lecture et écriture", "Sciences de la vie", "Histoire et géographie", "1 enseignant dédié", "Rapport mensuel parents", "Formation vidéo"], popular: false },
+              { level: "Secondaire", price: "25 000", color: "#ff9800", shadow: "#e65100", sub: "Collège & Lycée — prépa examens incluse", features: ["Maths avancées", "Physique-Chimie", "SVT", "Français & Littérature", "Anglais", "Prépa BEPC et BAC", "1 enseignant dédié", "Corrections illimitées", "Formation vidéo"], popular: true },
+              { level: "Dev informatique", price: "30 000", color: "#4caf50", shadow: "#2e7d32", sub: "Bases de l'informatique au développement pro", features: ["Bases de l'informatique", "Python", "HTML, CSS, JS", "React & Next.js", "Node.js & Neon (BDD)", "Git & bonnes pratiques", "Projets réels", "D'autres langages", "Formation vidéo"], popular: false },
             ].map(({ level, price, color, shadow, sub, features, popular }) => (
               <div key={level} className="card-hover" style={{ background: "#fff", borderRadius: 20, overflow: "hidden", border: popular ? `3px solid ${color}` : "2px solid #e5e7eb", boxShadow: popular ? `0 8px 0 ${shadow}50` : "none" }}>
                 {popular && (
