@@ -102,7 +102,7 @@ export default function Home() {
         <div className="hero-grid" style={{ maxWidth: 1200, margin: "0 auto", padding: "60px 20px", display: "grid", gridTemplateColumns: "1fr 1fr", gap: 48, alignItems: "center", width: "100%", position: "relative", zIndex: 1 }}>
           <div className="animate-fade-left">
             <h1 style={{ fontSize: "clamp(32px, 5.5vw, 68px)", fontWeight: 900, color: "#fff", lineHeight: 1.08, margin: "0 0 24px", letterSpacing: -1 }}>
-              des cours fun et<br />
+              Des cours fun et<br />
               efficaces pour<br />
               <span style={{ color: "#fff700", textShadow: "0 3px 0 rgba(0,0,0,0.12)" }}>toute l&apos;Afrique</span>
             </h1>
