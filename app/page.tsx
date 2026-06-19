@@ -398,6 +398,38 @@ export default function Home() {
             ))}
           </div>
 
+          {/* AUTRES FORMATIONS */}
+          <div style={{ marginTop: 32, background: "#fff", borderRadius: 20, border: "2px solid #e5e7eb", padding: "28px 28px 30px" }}>
+            <p style={{ fontWeight: 900, fontSize: 17, color: "#1a1a1a", margin: "0 0 4px" }}>D&apos;autres formations sont disponibles</p>
+            <p style={{ color: "#6b7280", fontSize: 14, margin: "0 0 22px" }}>Contacte-nous pour un programme et un tarif personnalisés selon tes besoins.</p>
+            <div style={{ display: "flex", flexWrap: "wrap", gap: 10 }}>
+              {[
+                { label: "Réseau & Systèmes", color: "#4db6f5" },
+                { label: "Développement personnel", color: "#ec4899" },
+                { label: "Anglais professionnel", color: "#f59e0b" },
+                { label: "Bureautique (Word, Excel)", color: "#4caf50" },
+                { label: "Marketing digital", color: "#9c27b0" },
+                { label: "Prise de parole en public", color: "#06b6d4" },
+                { label: "Gestion & comptabilité", color: "#ef4444" },
+              ].map(({ label, color }) => (
+                <a
+                  key={label}
+                  href="https://wa.me/+2250700601174"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn-bounce"
+                  style={{
+                    background: `${color}10`, color, border: `1.5px solid ${color}40`,
+                    fontWeight: 800, fontSize: 13, padding: "10px 18px", borderRadius: 100,
+                    textDecoration: "none", whiteSpace: "nowrap",
+                  }}
+                >
+                  {label}
+                </a>
+              ))}
+            </div>
+          </div>
+
           <div style={{ marginTop: 28, background: "#fff", borderRadius: 16, border: "2px solid #e5e7eb", padding: "20px 24px", display: "flex", alignItems: "center", justifyContent: "space-between", gap: 16, flexWrap: "wrap" }}>
             <div>
               <p style={{ fontWeight: 800, fontSize: 15, color: "#1a1a1a", margin: "0 0 4px" }}>Des questions sur les cours privés ?</p>
