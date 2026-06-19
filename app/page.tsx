@@ -13,49 +13,11 @@ export default function Home() {
             <span style={{ fontSize: 22, fontWeight: 900, color: "#4db6f5", letterSpacing: -0.5 }}>Learnly</span>
           </div>
           <ul className="nav-links" style={{ display: "flex", gap: 28, listStyle: "none", margin: 0, padding: 0 }}>
-            {[["Fonctionnalités", "#fonctionnalites"], ["AgroTech", "#agrotech"], ["Tarifs", "#tarifs"]].map(([label, href]) => (
+            {[["Fonctionnalités", "#fonctionnalites"], ["Tarifs", "#tarifs"]].map(([label, href]) => (
               <li key={label}><a href={href} style={{ fontWeight: 700, color: "#374151", textDecoration: "none", fontSize: 15 }}>{label}</a></li>
             ))}
           </ul>
           <div style={{ display: "flex", gap: 10, alignItems: "center" }}>
-             <a href="/agrotech" className="btn-bounce desktop-cta" style={{
-              background: "linear-gradient(135deg, #1a1200, #2d1f00)",
-              color: "#f5a623", fontWeight: 900, fontSize: 13,
-              padding: "10px 18px", borderRadius: 12,
-              border: "1.5px solid rgba(245,166,35,0.45)", cursor: "pointer",
-              textDecoration: "none", letterSpacing: 0.3, textTransform: "uppercase",
-              whiteSpace: "nowrap", display: "flex", alignItems: "center", gap: 6,
-            }}>
-               AgroTech
-            </a>
-            {/* BOUTON AGROTECH */}
-        
-<a 
-  href="https://www.tiktok.com/@learnlyagrotech?is_from_webapp=1&sender_device=pc" 
-  className="btn-bounce desktop-cta" 
-  style={{
-    background: "#ffffff",
-    color: "#f5a623", 
-    fontWeight: 900, 
-    fontSize: 13,
-    padding: "10px 18px", 
-    borderRadius: 12,
-    border: "1.5px solid rgba(245,166,35,0.45)", 
-    cursor: "pointer",
-    textDecoration: "none", 
-    letterSpacing: 0.3, 
-    textTransform: "uppercase",
-    whiteSpace: "nowrap", 
-    display: "flex", 
-    alignItems: "center", 
-    gap: 6,
-    boxShadow: "0 4px 6px rgba(0, 0, 0, 0.05)", // Ombre douce pour l'aspect moderne
-  }}
->
-  Soutenir
-</a>
-
-
             <a href="https://learnlyv2.yosite.fun/" className="btn-bounce desktop-cta" style={{
               background: "#4db6f5", color: "#fff", fontWeight: 900, fontSize: 14,
               padding: "11px 20px", borderRadius: 12, border: "none", cursor: "pointer",
@@ -95,7 +57,7 @@ export default function Home() {
           borderTop: "2px solid #f3f4f6",
         }}>
           <div style={{ padding: "16px 20px 20px", display: "flex", flexDirection: "column", gap: 4 }}>
-            {[["Fonctionnalités", "#fonctionnalites"], ["AgroTech", "#agrotech"], ["Tarifs", "#tarifs"]].map(([label, href]) => (
+            {[["Fonctionnalités", "#fonctionnalites"], ["Tarifs", "#tarifs"]].map(([label, href]) => (
               <a
                 key={label}
                 href={href}
@@ -114,37 +76,6 @@ export default function Home() {
                 {label}
               </a>
             ))}
-            {/* BOUTON AGROTECH MOBILE */}
-            <a href="/agrotech" style={{
-              background: "linear-gradient(135deg, #1a1200, #2d1f00)",
-              color: "#f5a623", fontWeight: 900, fontSize: 15,
-              padding: "14px 20px", borderRadius: 12, textDecoration: "none",
-              letterSpacing: 0.5, textTransform: "uppercase",
-              border: "1.5px solid rgba(245,166,35,0.4)", textAlign: "center",
-              marginTop: 4,
-            }}>
-               Learnly AgroTech
-            </a>
-            <a 
-  href="/agrotech" 
-  style={{
-    background: "#ffffff",
-    color: "#f5a623", 
-    fontWeight: 900, 
-    fontSize: 15,
-    padding: "14px 20px", 
-    borderRadius: 12, 
-    textDecoration: "none",
-    letterSpacing: 0.5, 
-    textTransform: "uppercase",
-    border: "1.5px solid rgba(245,166,35,0.4)", 
-    textAlign: "center",
-    marginTop: 4,
-    boxShadow: "0 4px 6px rgba(0, 0, 0, 0.05)",
-  }}
->
-  Soutenir
-</a>
             <a href="https://learnlyv2.yosite.fun/" style={{
               background: "#4db6f5", color: "#fff", fontWeight: 900, fontSize: 15,
               padding: "14px 20px", borderRadius: 12, textDecoration: "none",
@@ -186,15 +117,6 @@ export default function Home() {
                 textTransform: "uppercase",
               }}>
                 Commencer — c&apos;est gratuit
-              </a>
-              {/* BOUTON AGROTECH DANS LE HERO */}
-              <a href="/agrotech" className="btn-bounce" style={{
-                background: "rgba(0,0,0,0.2)", color: "#f5a623", fontWeight: 900, fontSize: 14,
-                padding: "15px 24px", borderRadius: 16, textDecoration: "none",
-                border: "2px solid rgba(245,166,35,0.6)", letterSpacing: 0.5,
-                textTransform: "uppercase", display: "flex", alignItems: "center", gap: 8,
-              }}>
-                 AgroTech
               </a>
             </div>
           </div>
@@ -350,131 +272,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ============================================================ */}
-      {/* LEARNLY AGROTECH SECTION — couleurs mangue */}
-      {/* ============================================================ */}
-      <section id="agrotech" style={{
-        background: "linear-gradient(150deg, #1a1200 0%, #2d1f00 30%, #1a2e0a 65%, #0d2010 100%)",
-        padding: "100px 20px",
-        position: "relative",
-        overflow: "hidden",
-        borderTop: "4px solid #f5a623",
-      }}>
-        {/* Background texture */}
-        <div style={{
-          position: "absolute", inset: 0, opacity: 0.035,
-          backgroundImage: "radial-gradient(circle, #ffd54f 1.5px, transparent 1.5px)",
-          backgroundSize: "32px 32px",
-        }} />
-        <div style={{ position: "absolute", width: 480, height: 480, background: "radial-gradient(circle, rgba(245,166,35,0.12) 0%, transparent 70%)", top: "-120px", right: "-60px", borderRadius: "60% 40% 30% 70% / 60% 30% 70% 40%", pointerEvents: "none" }} />
-        <div style={{ position: "absolute", width: 320, height: 320, background: "radial-gradient(circle, rgba(76,175,80,0.09) 0%, transparent 70%)", bottom: "-80px", left: "4%", borderRadius: "40% 60% 70% 30%", pointerEvents: "none" }} />
-        <div style={{ position: "absolute", width: 600, height: 600, background: "radial-gradient(circle, rgba(255,152,0,0.06) 0%, transparent 65%)", top: "30%", left: "35%", transform: "translate(-50%, -50%)", pointerEvents: "none" }} />
-
-        <div style={{ maxWidth: 1100, margin: "0 auto", position: "relative", zIndex: 1 }}>
-          {/* Header */}
-          <div style={{ textAlign: "center", marginBottom: 64 }}>
-            <div style={{ display: "inline-flex", alignItems: "center", gap: 10, background: "rgba(245,166,35,0.12)", border: "1px solid rgba(245,166,35,0.35)", borderRadius: 100, padding: "6px 18px", marginBottom: 20 }}>
-              <span style={{ fontSize: 11, fontWeight: 900, letterSpacing: 4, color: "#f5a623", textTransform: "uppercase" }}>Filiale de Learnly</span>
-            </div>
-            <h2 style={{ fontSize: "clamp(28px, 5vw, 58px)", fontWeight: 900, color: "#fff", marginBottom: 16, letterSpacing: -1, lineHeight: 1.05 }}>
-              Learnly{" "}<span style={{ color: "#f5a623" }}>AgroTech</span>
-            </h2>
-            <p style={{ color: "rgba(255,255,255,0.5)", fontSize: 11, fontWeight: 900, letterSpacing: 4, textTransform: "uppercase", marginBottom: 20 }}>
-              Modernisation de la filière mangue par le digital
-            </p>
-            <p style={{ color: "rgba(255,255,255,0.72)", fontSize: 18, maxWidth: 580, margin: "0 auto", lineHeight: 1.65 }}>
-              Drones intelligents, plateformes vitrines et solutions e-commerce modernes pour développer les entreprises agricoles africaines.
-            </p>
-          </div>
-
-          {/* 3 Image Cards */}
-          <div className="agro-grid" style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 24, marginBottom: 60 }}>
-            <div className="card-hover" style={{ background: "rgba(255,255,255,0.04)", border: "1.5px solid rgba(255,255,255,0.1)", borderRadius: 24, overflow: "hidden", backdropFilter: "blur(8px)" }}>
-              <div style={{ position: "relative", width: "100%", aspectRatio: "4/3", background: "#fff", display: "flex", alignItems: "center", justifyContent: "center", padding: 20 }}>
-                <Image src="/businessgame.jpg" alt="IUA Business Game 2026" fill style={{ objectFit: "contain", padding: 16 }} />
-              </div>
-              <div style={{ padding: "22px 24px 26px" }}>
-                <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 10 }}>
-                  <span style={{ background: "#e53935", color: "#fff", fontSize: 10, fontWeight: 900, padding: "3px 10px", borderRadius: 100, letterSpacing: 1.5, textTransform: "uppercase" }}>Compétition</span>
-                </div>
-                <h3 style={{ fontWeight: 900, fontSize: 17, color: "#fff", margin: "0 0 8px", lineHeight: 1.3 }}>IUA Business Game 2026</h3>
-                <p style={{ color: "rgba(255,255,255,0.58)", fontSize: 13, lineHeight: 1.65, margin: 0 }}>Learnly AgroTech participe au Business Game de l&apos;IUA — la compétition entrepreneuriale majeure de Côte d&apos;Ivoire.</p>
-              </div>
-            </div>
-
-            <div className="card-hover" style={{ background: "rgba(255,255,255,0.04)", border: "1.5px solid rgba(245,166,35,0.28)", borderRadius: 24, overflow: "hidden", backdropFilter: "blur(8px)", boxShadow: "0 0 40px rgba(245,166,35,0.08)" }}>
-              <div style={{ position: "relative", width: "100%", aspectRatio: "4/3", background: "linear-gradient(135deg, #1a1200, #2d1f00)", overflow: "hidden" }}>
-                <Image src="/drone.jpg" alt="Drone Agriculture AgroTech" fill style={{ objectFit: "cover" }} />
-                <div style={{ position: "absolute", top: 14, right: 14, background: "#f5a623", color: "#1a1200", fontSize: 10, fontWeight: 900, padding: "4px 12px", borderRadius: 100, letterSpacing: 1.5, textTransform: "uppercase" }}>Innovation</div>
-              </div>
-              <div style={{ padding: "22px 24px 26px" }}>
-                <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 10 }}>
-                  <span style={{ background: "rgba(245,166,35,0.15)", color: "#f5a623", fontSize: 10, fontWeight: 900, padding: "3px 10px", borderRadius: 100, letterSpacing: 1.5, textTransform: "uppercase", border: "1px solid rgba(245,166,35,0.3)" }}>Drone Tech</span>
-                </div>
-                <h3 style={{ fontWeight: 900, fontSize: 17, color: "#fff", margin: "0 0 8px", lineHeight: 1.3 }}>Agriculture par Drone</h3>
-                <p style={{ color: "rgba(255,255,255,0.58)", fontSize: 13, lineHeight: 1.65, margin: 0 }}>Des drones intelligents pour surveiller, analyser et optimiser les cultures de mangues à grande échelle.</p>
-              </div>
-            </div>
-
-            <div className="card-hover" style={{ background: "rgba(255,255,255,0.04)", border: "1.5px solid rgba(76,175,80,0.2)", borderRadius: 24, overflow: "hidden", backdropFilter: "blur(8px)" }}>
-              <div style={{ position: "relative", width: "100%", aspectRatio: "4/3", background: "#f8f9fa", display: "flex", alignItems: "center", justifyContent: "center" }}>
-                <Image src="/logo.png" alt="Learnly AgroTech Logo" fill style={{ objectFit: "contain", padding: 24 }} />
-              </div>
-              <div style={{ padding: "22px 24px 26px" }}>
-                <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 10 }}>
-                  <span style={{ background: "rgba(76,175,80,0.15)", color: "#6fcf79", fontSize: 10, fontWeight: 900, padding: "3px 10px", borderRadius: 100, letterSpacing: 1.5, textTransform: "uppercase", border: "1px solid rgba(76,175,80,0.3)" }}>Startup</span>
-                </div>
-                <h3 style={{ fontWeight: 900, fontSize: 17, color: "#fff", margin: "0 0 8px", lineHeight: 1.3 }}>Learnly AgroTech</h3>
-                <p style={{ color: "rgba(255,255,255,0.58)", fontSize: 13, lineHeight: 1.65, margin: 0 }}>Une startup africaine qui place la technologie au coeur de l&apos;agriculture pour moderniser la filière mangue.</p>
-              </div>
-            </div>
-          </div>
-
-          {/* Stats Pills */}
-          <div style={{ display: "flex", flexWrap: "wrap", gap: 16, justifyContent: "center", marginBottom: 56 }}>
-            {[
-              { label: "Drones agricoles", value: "Surveillance & analyse" },
-              { label: "E-commerce", value: "Vente directe producteurs" },
-              { label: "Impact africain", value: "Filière mangue CI" },
-              { label: "Plateformes vitrines", value: "Digital pour agriculteurs" },
-            ].map(({ label, value }) => (
-              <div key={label} style={{ background: "rgba(255,255,255,0.05)", border: "1.5px solid rgba(245,166,35,0.18)", borderRadius: 16, padding: "16px 22px", display: "flex", alignItems: "center", gap: 14, backdropFilter: "blur(6px)" }}>
-                <div>
-                  <p style={{ fontWeight: 900, fontSize: 13, color: "#f5a623", margin: "0 0 2px" }}>{label}</p>
-                  <p style={{ color: "rgba(255,255,255,0.5)", fontSize: 12, margin: 0 }}>{value}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-
-          {/* CTA AgroTech — avec bouton vers la page dédiée */}
-          <div style={{ background: "rgba(245,166,35,0.08)", border: "2px solid rgba(245,166,35,0.3)", borderRadius: 20, padding: "28px 32px", display: "flex", alignItems: "center", justifyContent: "space-between", gap: 20, flexWrap: "wrap" }}>
-            <div>
-              <p style={{ fontWeight: 900, fontSize: 18, color: "#f5a623", margin: "0 0 6px" }}>Intéressé par Learnly AgroTech ?</p>
-              <p style={{ color: "rgba(255,255,255,0.6)", fontSize: 14, margin: 0 }}>Rejoignez notre mission de modernisation de l&apos;agriculture africaine par la technologie.</p>
-            </div>
-            <div style={{ display: "flex", gap: 12, flexWrap: "wrap" }}>
-              <a href="/agrotech" className="btn-bounce" style={{
-                background: "rgba(245,166,35,0.15)", color: "#f5a623", fontWeight: 900, fontSize: 14,
-                padding: "14px 24px", borderRadius: 12, textDecoration: "none",
-                textTransform: "uppercase", letterSpacing: 0.5, whiteSpace: "nowrap",
-                border: "1.5px solid rgba(245,166,35,0.4)",
-              }}>
-                Voir la page AgroTech →
-              </a>
-              <a href="https://wa.me/+2250700601174" target="_blank" rel="noopener noreferrer" className="btn-bounce" style={{
-                background: "#f5a623", color: "#1a1200", fontWeight: 900, fontSize: 14,
-                padding: "14px 28px", borderRadius: 12, textDecoration: "none",
-                textTransform: "uppercase", letterSpacing: 0.5, whiteSpace: "nowrap",
-                boxShadow: "0 4px 0 #b8740f",
-              }}>
-                Nous contacter
-              </a>
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* PRICING */}
       <section id="tarifs" style={{ background: "#f9fafb", padding: "80px 20px", borderTop: "3px solid #e5e7eb" }}>
         <div style={{ maxWidth: 1100, margin: "0 auto" }}>
@@ -580,9 +377,6 @@ export default function Home() {
               <p style={{ color: "#6b7280", fontSize: 14, lineHeight: 1.7, maxWidth: 240 }}>
                 La plateforme d&apos;apprentissage gratuite pensée pour l&apos;Afrique. Du primaire au dev web.
               </p>
-              <a href="/agrotech" style={{ marginTop: 16, display: "inline-flex", alignItems: "center", gap: 6, background: "rgba(245,166,35,0.08)", border: "1px solid rgba(245,166,35,0.22)", borderRadius: 8, padding: "6px 12px", textDecoration: "none" }}>
-                <span style={{ fontSize: 12, fontWeight: 800, color: "#f5a623" }}>Learnly AgroTech →</span>
-              </a>
             </div>
             {[
               { title: "Plateforme", links: ["Fonctionnalités", "Cours disponibles", "Classement", "Quêtes"] },
@@ -602,7 +396,7 @@ export default function Home() {
             ))}
           </div>
           <div style={{ borderTop: "1px solid #1f2937", paddingTop: 24, display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: 12 }}>
-            <p style={{ color: "#4b5563", fontSize: 13, margin: 0 }}>© 2025 Learnly & Learnly AgroTech. Tous droits réservés.</p>
+            <p style={{ color: "#4b5563", fontSize: 13, margin: 0 }}>© 2025 Learnly. Tous droits réservés.</p>
             <p style={{ color: "#4b5563", fontSize: 13, margin: 0 }}>Fait avec amour pour les apprenants de Côte d&apos;Ivoire et d&apos;Afrique.</p>
           </div>
         </div>
@@ -615,7 +409,6 @@ export default function Home() {
           .hero-image { display: flex !important; width: 100%; max-width: 340px; margin: 0 auto; }
           .two-col { grid-template-columns: 1fr !important; gap: 40px !important; }
           .grid-3 { grid-template-columns: 1fr 1fr !important; }
-          .agro-grid { grid-template-columns: 1fr 1fr !important; }
           .footer-grid { grid-template-columns: 1fr 1fr !important; }
         }
         @media (max-width: 600px) {
@@ -623,7 +416,6 @@ export default function Home() {
           .desktop-cta { display: none !important; }
           #hamburger-btn { display: flex !important; }
           .grid-3 { grid-template-columns: 1fr !important; }
-          .agro-grid { grid-template-columns: 1fr !important; }
           .footer-grid { grid-template-columns: 1fr !important; }
           .gif-badge { display: inline-block !important; }
           .hero-image { max-width: 280px !important; }
