@@ -241,6 +241,39 @@ export default function Home() {
         </div>
       </section>
 
+      {/* CLASSEMENT & STREAK */}
+      <section style={{ background: "#f9fafb", padding: "80px 20px", borderTop: "3px solid #e5e7eb", borderBottom: "3px solid #e5e7eb" }}>
+        <div style={{ maxWidth: 1100, margin: "0 auto" }}>
+          <p style={{ textAlign: "center", fontSize: 12, fontWeight: 900, letterSpacing: 4, color: "#4db6f5", textTransform: "uppercase", marginBottom: 12 }}>Motivation</p>
+          <h2 style={{ textAlign: "center", fontSize: "clamp(24px, 4vw, 44px)", fontWeight: 900, color: "#1a1a1a", marginBottom: 56, letterSpacing: -0.5 }}>
+            grimpe le classement, garde ta flamme
+          </h2>
+          <div className="grid-3" style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 24 }}>
+            <div className="card-hover" style={{ background: "#fff", borderRadius: 24, border: "2px solid #e5e7eb", padding: "36px 32px", display: "flex", flexDirection: "column", alignItems: "center", textAlign: "center" }}>
+              <Image src="/legendary.svg" alt="Classement Legendary" width={140} height={140} style={{ marginBottom: 24 }} />
+              <h3 style={{ fontWeight: 900, fontSize: 20, color: "#1a1a1a", margin: "0 0 10px" }}>Classement</h3>
+              <p style={{ color: "#6b7280", fontSize: 14, lineHeight: 1.7, margin: 0, maxWidth: 320 }}>
+                Affronte des apprenants de toute l&apos;Afrique en ligue hebdomadaire et grimpe jusqu&apos;à la division Legendary.
+              </p>
+            </div>
+            <div className="card-hover" style={{ background: "#fff", borderRadius: 24, border: "2px solid #e5e7eb", padding: "36px 32px", display: "flex", flexDirection: "column", alignItems: "center", textAlign: "center" }}>
+              <Image src="/flamme.svg" alt="Série Streak" width={140} height={140} style={{ marginBottom: 24 }} />
+              <h3 style={{ fontWeight: 900, fontSize: 20, color: "#1a1a1a", margin: "0 0 10px" }}>Streak</h3>
+              <p style={{ color: "#6b7280", fontSize: 14, lineHeight: 1.7, margin: 0, maxWidth: 320 }}>
+                Maintiens ta série de jours consécutifs pour rester motivé et construire une vraie habitude d&apos;apprentissage.
+              </p>
+            </div>
+            <div className="card-hover" style={{ background: "#fff", borderRadius: 24, border: "2px solid #e5e7eb", padding: "36px 32px", display: "flex", flexDirection: "column", alignItems: "center", textAlign: "center" }}>
+              <Image src="/ligue.svg" alt="Ligues hebdomadaires" width={140} height={140} style={{ marginBottom: 24 }} />
+              <h3 style={{ fontWeight: 900, fontSize: 20, color: "#1a1a1a", margin: "0 0 10px" }}>Ligues</h3>
+              <p style={{ color: "#6b7280", fontSize: 14, lineHeight: 1.7, margin: 0, maxWidth: 320 }}>
+                Chaque semaine, rejoins une nouvelle ligue et monte de niveau en accumulant le plus d&apos;XP possible.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* COMMENT CA MARCHE */}
       <section id="comment" style={{ background: "#f9fafb", padding: "80px 20px", borderTop: "3px solid #e5e7eb", borderBottom: "3px solid #e5e7eb" }}>
         <div className="two-col" style={{ maxWidth: 1100, margin: "0 auto", display: "grid", gridTemplateColumns: "1fr 1fr", gap: 64, alignItems: "center" }}>
