@@ -102,7 +102,7 @@ export default function Home() {
         <div className="hero-grid" style={{ maxWidth: 1200, margin: "0 auto", padding: "60px 20px", display: "grid", gridTemplateColumns: "1fr 1fr", gap: 48, alignItems: "center", width: "100%", position: "relative", zIndex: 1 }}>
           <div className="animate-fade-left">
             <h1 style={{ fontSize: "clamp(32px, 5.5vw, 68px)", fontWeight: 900, color: "#fff", lineHeight: 1.08, margin: "0 0 24px", letterSpacing: -1 }}>
-              Des cours fun et<br />
+              des cours fun et<br />
               efficaces pour<br />
               <span style={{ color: "#fff700", textShadow: "0 3px 0 rgba(0,0,0,0.12)" }}>toute l&apos;Afrique</span>
             </h1>
@@ -118,6 +118,17 @@ export default function Home() {
               }}>
                 Commencer — c&apos;est gratuit
               </a>
+            </div>
+            <div style={{ display: "flex", alignItems: "center", gap: 18, marginTop: 36, flexWrap: "wrap" }}>
+              {[
+                { value: "500+", label: "élèves inscrits" },
+                { value: "12 000+", label: "leçons complétées" },
+              ].map(({ value, label }) => (
+                <div key={label} style={{ display: "flex", alignItems: "center", gap: 10 }}>
+                  <span style={{ fontSize: 26, fontWeight: 900, color: "#fff700" }}>{value}</span>
+                  <span style={{ color: "rgba(255,255,255,0.78)", fontSize: 13, fontWeight: 700, lineHeight: 1.3, maxWidth: 90 }}>{label}</span>
+                </div>
+              ))}
             </div>
           </div>
 
@@ -272,6 +283,64 @@ export default function Home() {
         </div>
       </section>
 
+      {/* TEMOIGNAGES */}
+      <section style={{ background: "#fff", padding: "80px 20px" }}>
+        <div style={{ maxWidth: 1100, margin: "0 auto" }}>
+          <p style={{ textAlign: "center", fontSize: 12, fontWeight: 900, letterSpacing: 4, color: "#4db6f5", textTransform: "uppercase", marginBottom: 12 }}>Témoignages</p>
+          <h2 style={{ textAlign: "center", fontSize: "clamp(24px, 4vw, 44px)", fontWeight: 900, color: "#1a1a1a", marginBottom: 56, letterSpacing: -0.5 }}>
+            ils apprennent déjà avec Learnly
+          </h2>
+          <div className="grid-3" style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 20 }}>
+            {[
+              { name: "Aïcha K.", role: "Élève en 3ème, Abidjan", color: "#4db6f5", text: "Mes notes en maths sont montées en flèche. Les leçons sont courtes, je les fais même entre deux cours." },
+              { name: "Yann B.", role: "Étudiant en informatique", color: "#4caf50", text: "J'ai découvert Python et Next.js avec un vrai prof. Les projets réels m'ont aidé à construire un portfolio." },
+              { name: "Mariam D.", role: "Maman d'un élève au CM2", color: "#ff9800", text: "Le rapport mensuel me permet de suivre ses progrès. Mon fils adore les quêtes et les défis du jour." },
+              { name: "Koffi T.", role: "Élève en Terminale", color: "#9c27b0", text: "La prépa BAC m'a vraiment rassuré. Les corrections illimitées m'ont fait gagner un temps fou avant l'examen." },
+            ].map(({ name, role, color, text }) => (
+              <div key={name} className="card-hover" style={{ background: "#f9fafb", borderRadius: 20, padding: "26px 24px", border: "2px solid #e5e7eb" }}>
+                <div style={{ color: "#fbbf24", fontSize: 16, marginBottom: 14, letterSpacing: 2 }}>★★★★★</div>
+                <p style={{ color: "#374151", fontSize: 14, lineHeight: 1.7, margin: "0 0 20px" }}>&ldquo;{text}&rdquo;</p>
+                <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
+                  <div style={{ width: 38, height: 38, borderRadius: "50%", background: color, display: "flex", alignItems: "center", justifyContent: "center", color: "#fff", fontWeight: 900, fontSize: 15, flexShrink: 0 }}>
+                    {name.charAt(0)}
+                  </div>
+                  <div>
+                    <p style={{ fontWeight: 800, fontSize: 13, color: "#1a1a1a", margin: 0 }}>{name}</p>
+                    <p style={{ color: "#9ca3af", fontSize: 12, margin: 0 }}>{role}</p>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ */}
+      <section style={{ background: "#f9fafb", padding: "80px 20px", borderTop: "3px solid #e5e7eb", borderBottom: "3px solid #e5e7eb" }}>
+        <div style={{ maxWidth: 760, margin: "0 auto" }}>
+          <p style={{ textAlign: "center", fontSize: 12, fontWeight: 900, letterSpacing: 4, color: "#4db6f5", textTransform: "uppercase", marginBottom: 12 }}>FAQ</p>
+          <h2 style={{ textAlign: "center", fontSize: "clamp(24px, 4vw, 44px)", fontWeight: 900, color: "#1a1a1a", marginBottom: 48, letterSpacing: -0.5 }}>
+            questions fréquentes
+          </h2>
+          <div style={{ display: "flex", flexDirection: "column", gap: 14 }}>
+            {[
+              { q: "Comment se passe le premier cours ?", a: "Après ton inscription, nous te contactons sous 24h sur WhatsApp pour fixer ton premier créneau avec ton enseignant. Une séance de découverte permet d'évaluer ton niveau et tes objectifs." },
+              { q: "Peut-on changer de matière ou de niveau en cours de route ?", a: "Oui, tu peux ajuster ton parcours à tout moment en nous contactant. On adapte l'enseignant et le contenu selon tes besoins, sans frais supplémentaires." },
+              { q: "Le remboursement est-il possible ?", a: "Tu disposes de 7 jours après ton inscription pour demander un remboursement intégral si les cours privés ne te conviennent pas, sans justification à fournir." },
+              { q: "Quel est le rythme des séances ?", a: "Les cours privés se déroulent à raison de 2 séances par semaine, pour un total de 4h d'accompagnement personnalisé." },
+              { q: "La plateforme Learnly est-elle vraiment gratuite ?", a: "Oui, l'accès aux leçons, au classement, aux quêtes et aux défis sur la plateforme est 100% gratuit. Seuls les cours privés avec un enseignant dédié sont payants." },
+            ].map(({ q, a }) => (
+              <details key={q} style={{ background: "#fff", borderRadius: 14, border: "2px solid #e5e7eb", padding: "18px 22px" }}>
+                <summary style={{ fontWeight: 800, fontSize: 15, color: "#1a1a1a", cursor: "pointer", listStyle: "none" }}>
+                  {q}
+                </summary>
+                <p style={{ color: "#6b7280", fontSize: 14, lineHeight: 1.7, margin: "12px 0 0" }}>{a}</p>
+              </details>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* PRICING */}
       <section id="tarifs" style={{ background: "#f9fafb", padding: "80px 20px", borderTop: "3px solid #e5e7eb" }}>
         <div style={{ maxWidth: 1100, margin: "0 auto" }}>
@@ -295,9 +364,9 @@ export default function Home() {
 
           <div className="grid-3" style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 20 }}>
             {[
-              { level: "Primaire", price: "20 000", color: "#4db6f5", shadow: "#2193d3", sub: "CP au CM2 — apprentissage ludique", features: ["Mathématiques", "Lecture et écriture", "Sciences de la vie", "Histoire et géographie", "1 enseignant dédié", "Rapport mensuel parents", "Formation vidéo"], popular: false },
-              { level: "Secondaire", price: "25 000", color: "#ff9800", shadow: "#e65100", sub: "Collège & Lycée — prépa examens incluse", features: ["Maths avancées", "Physique-Chimie", "SVT", "Français & Littérature", "Anglais", "Prépa BEPC et BAC", "1 enseignant dédié", "Corrections illimitées", "Formation vidéo"], popular: true },
-              { level: "Dev informatique", price: "30 000", color: "#4caf50", shadow: "#2e7d32", sub: "Bases de l'informatique au développement pro", features: ["Bases de l'informatique", "Python", "HTML, CSS, JS", "React & Next.js", "Node.js & Neon (BDD)", "Git & bonnes pratiques", "Projets réels", "D'autres langages", "Formation vidéo"], popular: false },
+              { level: "Primaire", price: "20 000", color: "#4db6f5", shadow: "#2193d3", sub: "CP au CM2 · 2 séances/semaine · 4h", features: ["Mathématiques", "Lecture et écriture", "Sciences de la vie", "Histoire et géographie", "1 enseignant dédié", "Rapport mensuel parents", "Formation vidéo"], popular: false },
+              { level: "Secondaire", price: "25 000", color: "#ff9800", shadow: "#e65100", sub: "Collège & Lycée · 2 séances/semaine · 4h", features: ["Maths avancées", "Physique-Chimie", "SVT", "Français & Littérature", "Anglais", "Prépa BEPC et BAC", "1 enseignant dédié", "Corrections illimitées", "Formation vidéo"], popular: true },
+              { level: "Dev informatique", price: "30 000", color: "#4caf50", shadow: "#2e7d32", sub: "Bases au pro · 2 séances/semaine · 4h", features: ["Bases de l'informatique", "Python", "HTML, CSS, JS", "React & Next.js", "Node.js & Neon (BDD)", "Git & bonnes pratiques", "Projets réels", "D'autres langages", "Formation vidéo"], popular: false },
             ].map(({ level, price, color, shadow, sub, features, popular }) => (
               <div key={level} className="card-hover" style={{ background: "#fff", borderRadius: 20, overflow: "hidden", border: popular ? `3px solid ${color}` : "2px solid #e5e7eb", boxShadow: popular ? `0 8px 0 ${shadow}50` : "none" }}>
                 {popular && (
