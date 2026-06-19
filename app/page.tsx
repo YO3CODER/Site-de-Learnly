@@ -215,6 +215,32 @@ export default function Home() {
         </div>
       </section>
 
+      {/* COURS VIDEO */}
+      <section style={{ background: "#fff", padding: "0 20px 80px" }}>
+        <div style={{ maxWidth: 1100, margin: "0 auto", background: "linear-gradient(135deg, #fff7e6, #fff)", border: "2px solid #ffe3a3", borderRadius: 28, padding: "48px", display: "grid", gridTemplateColumns: "1fr 1fr", gap: 40, alignItems: "center" }} className="two-col">
+          <div>
+            <p style={{ fontSize: 12, fontWeight: 900, letterSpacing: 4, color: "#f59e0b", textTransform: "uppercase", marginBottom: 12 }}>Nouveau</p>
+            <h2 style={{ fontSize: "clamp(24px, 4vw, 40px)", fontWeight: 900, color: "#1a1a1a", marginBottom: 16, letterSpacing: -0.5, lineHeight: 1.15 }}>
+              découvre nos cours vidéo
+            </h2>
+            <p style={{ color: "#6b7280", fontSize: 16, marginBottom: 32, lineHeight: 1.65, maxWidth: 420 }}>
+              Des cours filmés, clairs et accessibles à tout moment, pour apprendre à ton rythme en complément des leçons interactives.
+            </p>
+            <a href="https://learnlyv2.yosite.fun/cours" target="_blank" rel="noopener noreferrer" className="btn-bounce" style={{
+              background: "#f59e0b", color: "#fff", fontWeight: 900, fontSize: 15,
+              padding: "15px 32px", borderRadius: 16, textDecoration: "none",
+              boxShadow: "0 6px 0 #b8740f", letterSpacing: 0.5,
+              textTransform: "uppercase", display: "inline-block",
+            }}>
+              Voir les cours vidéo
+            </a>
+          </div>
+          <div style={{ display: "flex", justifyContent: "center" }}>
+            <Image src="/courses.svg" alt="Cours vidéo Learnly" width={380} height={380} style={{ width: "100%", maxWidth: 380, height: "auto" }} />
+          </div>
+        </div>
+      </section>
+
       {/* COMMENT CA MARCHE */}
       <section id="comment" style={{ background: "#f9fafb", padding: "80px 20px", borderTop: "3px solid #e5e7eb", borderBottom: "3px solid #e5e7eb" }}>
         <div className="two-col" style={{ maxWidth: 1100, margin: "0 auto", display: "grid", gridTemplateColumns: "1fr 1fr", gap: 64, alignItems: "center" }}>
