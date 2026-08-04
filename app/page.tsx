@@ -423,10 +423,44 @@ export default function Home() {
 
           <div className="grid-3" style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 20 }}>
             {[
-              { level: "Primaire", price: "20 000", color: "#4db6f5", shadow: "#2193d3", sub: "CP au CM2 · 2 séances/semaine · 4h", features: ["Mathématiques", "Lecture et écriture", "Sciences de la vie", "Histoire et géographie", "1 enseignant dédié", "Rapport mensuel parents", "Formation vidéo"], popular: false },
-              { level: "Secondaire", price: "25 000", color: "#ff9800", shadow: "#e65100", sub: "Collège & Lycée · 2 séances/semaine · 4h", features: ["Maths avancées", "Physique-Chimie", "SVT", "Français & Littérature", "Anglais", "Prépa BEPC et BAC", "1 enseignant dédié", "Corrections illimitées", "Formation vidéo"], popular: true },
-              { level: "Dev informatique", price: "30 000", color: "#4caf50", shadow: "#2e7d32", sub: "Bases au pro · 2 séances/semaine · 4h", features: ["Bases de l'informatique", "Python", "HTML, CSS, JS", "React & Next.js", "Node.js & Neon (BDD)", "Git & bonnes pratiques", "Projets réels", "D'autres langages", "Formation vidéo"], popular: false },
-            ].map(({ level, price, color, shadow, sub, features, popular }) => (
+              {
+                level: "Primaire",
+                priceRange: "20 000 - 30 000",
+                color: "#4db6f5", shadow: "#2193d3",
+                sub: "CP au CM2 · 2 séances/semaine · 4h",
+                levels: [
+                  { name: "CP - CE1", price: "20 000" },
+                  { name: "CE2 - CM1", price: "25 000" },
+                  { name: "CM2", price: "30 000" },
+                ],
+                features: ["Mathématiques", "Lecture et écriture", "Sciences de la vie", "Histoire et géographie", "1 enseignant dédié", "Rapport mensuel parents", "Formation vidéo"],
+                popular: false,
+              },
+              {
+                level: "Secondaire",
+                priceRange: "35 000 - 55 000",
+                color: "#ff9800", shadow: "#e65100",
+                sub: "Collège & Lycée · 2 séances/semaine · 4h",
+                levels: [
+                  { name: "6ème - 4ème", price: "35 000" },
+                  { name: "3ème (BEPC)", price: "40 000" },
+                  { name: "Seconde - Première", price: "50 000" },
+                  { name: "Terminale (BAC)", price: "55 000" },
+                ],
+                features: ["Maths avancées", "Physique-Chimie", "SVT", "Français & Littérature", "Anglais", "Prépa BEPC et BAC", "1 enseignant dédié", "Corrections illimitées", "Formation vidéo"],
+                popular: true,
+              },
+              {
+                level: "Dev informatique",
+                priceRange: null,
+                price: "60 000",
+                color: "#4caf50", shadow: "#2e7d32",
+                sub: "Bases au pro · 2 séances/semaine · 4h",
+                levels: null,
+                features: ["Bases de l'informatique", "Python", "HTML, CSS, JS", "React & Next.js", "Node.js & Neon (BDD)", "Git & bonnes pratiques", "Projets réels", "D'autres langages", "Formation vidéo"],
+                popular: false,
+              },
+            ].map(({ level, priceRange, price, color, shadow, sub, levels, features, popular }) => (
               <div key={level} className="card-hover" style={{ background: "#fff", borderRadius: 20, overflow: "hidden", border: popular ? `3px solid ${color}` : "2px solid #e5e7eb", boxShadow: popular ? `0 8px 0 ${shadow}50` : "none" }}>
                 {popular && (
                   <div style={{ background: color, color: "#fff", textAlign: "center", fontWeight: 900, fontSize: 12, padding: "7px", letterSpacing: 2, textTransform: "uppercase" }}>Populaire</div>
@@ -434,13 +468,27 @@ export default function Home() {
                 <div style={{ padding: "28px 24px 20px", borderBottom: "2px solid #f3f4f6", background: popular ? `${color}08` : "#f9fafb" }}>
                   <p style={{ fontSize: 11, fontWeight: 900, textTransform: "uppercase", letterSpacing: 2, color: "#9ca3af", margin: "0 0 6px" }}>Cours privé</p>
                   <p style={{ fontWeight: 900, fontSize: 20, color: "#1a1a1a", margin: "0 0 12px" }}>{level}</p>
-                  <div style={{ display: "flex", alignItems: "flex-end", gap: 4 }}>
-                    <span style={{ fontSize: 38, fontWeight: 900, color }}>{price}</span>
+                  <div style={{ display: "flex", alignItems: "flex-end", gap: 4, flexWrap: "wrap" }}>
+                    <span style={{ fontSize: levels ? 26 : 38, fontWeight: 900, color }}>{levels ? `${priceRange}` : price}</span>
                     <span style={{ color: "#9ca3af", fontSize: 14, marginBottom: 6, fontWeight: 700 }}>FCFA/mois</span>
                   </div>
                   <p style={{ color: "#6b7280", fontSize: 13, margin: "8px 0 0" }}>{sub}</p>
                 </div>
                 <div style={{ padding: "20px 24px 28px" }}>
+                  {levels && (
+                    <div style={{ marginBottom: 20, background: "#f9fafb", borderRadius: 12, border: "1px solid #f3f4f6", overflow: "hidden" }}>
+                      {levels.map(({ name, price: lvlPrice }, i) => (
+                        <div key={name} style={{
+                          display: "flex", alignItems: "center", justifyContent: "space-between",
+                          padding: "10px 14px",
+                          borderBottom: i < levels.length - 1 ? "1px solid #f3f4f6" : "none",
+                        }}>
+                          <span style={{ fontSize: 13, fontWeight: 700, color: "#374151" }}>{name}</span>
+                          <span style={{ fontSize: 13, fontWeight: 900, color }}>{lvlPrice} F</span>
+                        </div>
+                      ))}
+                    </div>
+                  )}
                   <ul style={{ listStyle: "none", padding: 0, margin: "0 0 24px" }}>
                     {features.map(f => (
                       <li key={f} style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 10, fontSize: 14 }}>
@@ -540,7 +588,7 @@ export default function Home() {
             </div>
             {[
               { title: "Plateforme", links: ["Fonctionnalités", "Cours disponibles", "Classement", "Quêtes"] },
-              { title: "Cours privés", links: ["Primaire — 20 000 FCFA", "Secondaire — 25 000 FCFA", "Dev — 30 000 FCFA", "Nous contacter"] },
+              { title: "Cours privés", links: ["Primaire — dès 20 000 FCFA", "Secondaire — dès 35 000 FCFA", "Dev — 60 000 FCFA", "Nous contacter"] },
               { title: "Support", links: ["FAQ", "Contact", "Confidentialité", "CGU"] },
             ].map(({ title, links }) => (
               <div key={title}>
