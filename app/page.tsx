@@ -1,7 +1,164 @@
+"use client";
+
 import Image from "next/image";
+import { useEffect } from "react";
 import "./globals.css";
 
 export default function Home() {
+  useEffect(() => {
+    function applyBounce(el) {
+      const onDown = function () {
+        this.style.transition = "transform 0.1s ease, box-shadow 0.1s ease";
+        this.style.transform = "translateY(5px) scale(0.95)";
+        this.style.boxShadow = "none";
+      };
+      const onUp = function () {
+        this.style.transition = "transform 0.4s cubic-bezier(0.34, 1.7, 0.64, 1), box-shadow 0.3s ease";
+        this.style.transform = "translateY(0px) scale(1)";
+      };
+      const onLeave = function () {
+        this.style.transition = "transform 0.3s ease";
+        this.style.transform = "translateY(0px) scale(1)";
+      };
+      el.addEventListener("mousedown", onDown);
+      el.addEventListener("mouseup", onUp);
+      el.addEventListener("mouseleave", onLeave);
+      return () => {
+        el.removeEventListener("mousedown", onDown);
+        el.removeEventListener("mouseup", onUp);
+        el.removeEventListener("mouseleave", onLeave);
+      };
+    }
+
+    const cleanups = [];
+    document.querySelectorAll(".btn-bounce").forEach((el) => cleanups.push(applyBounce(el)));
+
+    // SIMULATEUR DE TARIF
+    const simLevel = document.getElementById("sim-level");
+    const simHours = document.getElementById("sim-hours");
+    const simHourOut = document.getElementById("sim-hour");
+    const simWeekOut = document.getElementById("sim-week");
+    const simMonthOut = document.getElementById("sim-month");
+    const simEngLabel = document.getElementById("sim-engagement-label");
+    const simEngTotal = document.getElementById("sim-engagement-total");
+    const simEngNote = document.getElementById("sim-engagement-note");
+    const simBadges = document.querySelectorAll(".sim-badge");
+
+    let selectedMonths = 1;
+    let selectedDiscount = 0;
+    let selectedLabel = "Mensuel";
+
+    function fmt(n) {
+      return Math.round(n).toLocaleString("fr-FR") + " F";
+    }
+
+    function setBadgeActive(btn) {
+      simBadges.forEach((b) => {
+        const c = b.getAttribute("data-color");
+        b.style.background = c + "10";
+        b.style.color = c;
+        b.style.border = "1.5px solid " + c + "40";
+        b.style.boxShadow = "none";
+      });
+      if (btn) {
+        const c2 = btn.getAttribute("data-color");
+        btn.style.background = c2;
+        btn.style.color = "#fff";
+        btn.style.border = "1.5px solid " + c2;
+        btn.style.boxShadow = "0 3px 0 rgba(0,0,0,0.15)";
+      }
+    }
+
+    function calcSim() {
+      if (!simLevel || !simHours) return;
+      const rate = parseInt(simLevel.value, 10) || 0;
+      let hours = parseInt(simHours.value, 10) || 0;
+      if (hours < 1) hours = 1;
+      if (hours > 12) hours = 12;
+      simHours.value = hours;
+
+      const weekly = rate * hours;
+      const monthly = weekly * 4;
+
+      if (simHourOut) simHourOut.textContent = fmt(rate);
+      if (simWeekOut) simWeekOut.textContent = fmt(weekly);
+      if (simMonthOut) simMonthOut.textContent = fmt(monthly);
+
+      const totalBase = monthly * selectedMonths;
+      const totalDiscounted = totalBase * (1 - selectedDiscount / 100);
+      const monthlyEquivalent = totalDiscounted / selectedMonths;
+      const savings = totalBase - totalDiscounted;
+
+      if (simEngLabel) simEngLabel.textContent = selectedLabel;
+      if (simEngTotal) simEngTotal.textContent = fmt(totalDiscounted);
+      if (simEngNote) {
+        simEngNote.textContent =
+          selectedDiscount > 0
+            ? fmt(monthlyEquivalent) + " / mois — économie " + fmt(savings)
+            : fmt(monthlyEquivalent) + " / mois";
+      }
+    }
+
+    if (simLevel && simHours) {
+      simLevel.addEventListener("change", calcSim);
+      simHours.addEventListener("input", calcSim);
+    }
+
+    const badgeHandlers = [];
+    simBadges.forEach((btn) => {
+      const handler = () => {
+        selectedMonths = parseInt(btn.getAttribute("data-months"), 10) || 1;
+        selectedDiscount = parseInt(btn.getAttribute("data-discount"), 10) || 0;
+        selectedLabel = btn.textContent.split(" — ")[0];
+        setBadgeActive(btn);
+        calcSim();
+      };
+      btn.addEventListener("click", handler);
+      badgeHandlers.push([btn, handler]);
+    });
+
+    if (simBadges.length) {
+      setBadgeActive(simBadges[0]);
+    }
+    calcSim();
+
+    // MENU HAMBURGER MOBILE
+    const hbtn = document.getElementById("hamburger-btn");
+    const menu = document.getElementById("mobile-menu");
+    let menuLinkHandlers = [];
+    let hamburgerHandler;
+    if (hbtn && menu) {
+      hamburgerHandler = () => {
+        const isOpen = menu.classList.toggle("open");
+        hbtn.classList.toggle("open", isOpen);
+        hbtn.setAttribute("aria-expanded", isOpen ? "true" : "false");
+      };
+      hbtn.addEventListener("click", hamburgerHandler);
+
+      menu.querySelectorAll("a").forEach((link) => {
+        const linkHandler = () => {
+          menu.classList.remove("open");
+          hbtn.classList.remove("open");
+          hbtn.setAttribute("aria-expanded", "false");
+        };
+        link.addEventListener("click", linkHandler);
+        menuLinkHandlers.push([link, linkHandler]);
+      });
+    }
+
+    // Cleanup au démontage du composant
+    return () => {
+      cleanups.forEach((fn) => fn && fn());
+      if (simLevel && simHours) {
+        simLevel.removeEventListener("change", calcSim);
+        simHours.removeEventListener("input", calcSim);
+      }
+      badgeHandlers.forEach(([btn, handler]) => btn.removeEventListener("click", handler));
+      if (hbtn && hamburgerHandler) hbtn.removeEventListener("click", hamburgerHandler);
+      menuLinkHandlers.forEach(([link, handler]) => link.removeEventListener("click", handler));
+    };
+  }, []);
+
   return (
     <div className="min-h-screen font-sans">
 
@@ -747,139 +904,6 @@ export default function Home() {
         #hamburger-btn.open .ham-bar:nth-child(2) { opacity: 0; transform: scaleX(0); }
         #hamburger-btn.open .ham-bar:nth-child(3) { transform: translateY(-7.5px) rotate(-45deg); }
       `}</style>
-
-      {/* SCRIPTS */}
-      <script dangerouslySetInnerHTML={{ __html: `
-        function learnlyInit() {
-          function applyBounce(el) {
-            el.addEventListener('mousedown', function() {
-              this.style.transition = 'transform 0.1s ease, box-shadow 0.1s ease';
-              this.style.transform = 'translateY(5px) scale(0.95)';
-              this.style.boxShadow = 'none';
-            });
-            el.addEventListener('mouseup', function() {
-              this.style.transition = 'transform 0.4s cubic-bezier(0.34, 1.7, 0.64, 1), box-shadow 0.3s ease';
-              this.style.transform = 'translateY(0px) scale(1)';
-            });
-            el.addEventListener('mouseleave', function() {
-              this.style.transition = 'transform 0.3s ease';
-              this.style.transform = 'translateY(0px) scale(1)';
-            });
-          }
-          document.querySelectorAll('.btn-bounce').forEach(applyBounce);
-
-          // SIMULATEUR DE TARIF
-          var simLevel = document.getElementById('sim-level');
-          var simHours = document.getElementById('sim-hours');
-          var simHourOut = document.getElementById('sim-hour');
-          var simWeekOut = document.getElementById('sim-week');
-          var simMonthOut = document.getElementById('sim-month');
-          var simEngLabel = document.getElementById('sim-engagement-label');
-          var simEngTotal = document.getElementById('sim-engagement-total');
-          var simEngNote = document.getElementById('sim-engagement-note');
-          var simBadges = document.querySelectorAll('.sim-badge');
-
-          var selectedMonths = 1;
-          var selectedDiscount = 0;
-          var selectedLabel = 'Mensuel';
-          var selectedColor = '#6b7280';
-
-          function fmt(n) {
-            return Math.round(n).toLocaleString('fr-FR') + ' F';
-          }
-
-          function setBadgeActive(btn) {
-            simBadges.forEach(function(b) {
-              var c = b.getAttribute('data-color');
-              b.style.background = c + '10';
-              b.style.color = c;
-              b.style.border = '1.5px solid ' + c + '40';
-              b.style.boxShadow = 'none';
-            });
-            if (btn) {
-              var c2 = btn.getAttribute('data-color');
-              btn.style.background = c2;
-              btn.style.color = '#fff';
-              btn.style.border = '1.5px solid ' + c2;
-              btn.style.boxShadow = '0 3px 0 rgba(0,0,0,0.15)';
-            }
-          }
-
-          function calcSim() {
-            if (!simLevel || !simHours) return;
-            var rate = parseInt(simLevel.value, 10) || 0;
-            var hours = parseInt(simHours.value, 10) || 0;
-            if (hours < 1) hours = 1;
-            if (hours > 12) hours = 12;
-            simHours.value = hours;
-
-            var weekly = rate * hours;
-            var monthly = weekly * 4;
-
-            simHourOut.textContent = fmt(rate);
-            simWeekOut.textContent = fmt(weekly);
-            simMonthOut.textContent = fmt(monthly);
-
-            var totalBase = monthly * selectedMonths;
-            var totalDiscounted = totalBase * (1 - selectedDiscount / 100);
-            var monthlyEquivalent = totalDiscounted / selectedMonths;
-            var savings = totalBase - totalDiscounted;
-
-            simEngLabel.textContent = selectedLabel;
-            simEngTotal.textContent = fmt(totalDiscounted);
-            if (selectedDiscount > 0) {
-              simEngNote.textContent = fmt(monthlyEquivalent) + ' / mois — économie ' + fmt(savings);
-            } else {
-              simEngNote.textContent = fmt(monthlyEquivalent) + ' / mois';
-            }
-          }
-
-          if (simLevel && simHours) {
-            simLevel.addEventListener('change', calcSim);
-            simHours.addEventListener('input', calcSim);
-          }
-
-          simBadges.forEach(function(btn) {
-            btn.addEventListener('click', function() {
-              selectedMonths = parseInt(btn.getAttribute('data-months'), 10) || 1;
-              selectedDiscount = parseInt(btn.getAttribute('data-discount'), 10) || 0;
-              selectedColor = btn.getAttribute('data-color');
-              selectedLabel = btn.textContent.split(' — ')[0];
-              setBadgeActive(btn);
-              calcSim();
-            });
-          });
-
-          if (simBadges.length) {
-            setBadgeActive(simBadges[0]);
-          }
-          calcSim();
-
-          var btn = document.getElementById('hamburger-btn');
-          var menu = document.getElementById('mobile-menu');
-          if (btn && menu) {
-            btn.addEventListener('click', function() {
-              var isOpen = menu.classList.toggle('open');
-              btn.classList.toggle('open', isOpen);
-              btn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
-            });
-            menu.querySelectorAll('a').forEach(function(link) {
-              link.addEventListener('click', function() {
-                menu.classList.remove('open');
-                btn.classList.remove('open');
-                btn.setAttribute('aria-expanded', 'false');
-              });
-            });
-          }
-        }
-
-        if (document.readyState === 'loading') {
-          document.addEventListener('DOMContentLoaded', learnlyInit);
-        } else {
-          learnlyInit();
-        }
-      `}} />
-
     </div>
   );
 }
