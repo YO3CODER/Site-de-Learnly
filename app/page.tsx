@@ -6,17 +6,17 @@ import "./globals.css";
 
 export default function Home() {
   useEffect(() => {
-    function applyBounce(el) {
-      const onDown = function () {
+    function applyBounce(el: HTMLElement) {
+      const onDown = function (this: HTMLElement) {
         this.style.transition = "transform 0.1s ease, box-shadow 0.1s ease";
         this.style.transform = "translateY(5px) scale(0.95)";
         this.style.boxShadow = "none";
       };
-      const onUp = function () {
+      const onUp = function (this: HTMLElement) {
         this.style.transition = "transform 0.4s cubic-bezier(0.34, 1.7, 0.64, 1), box-shadow 0.3s ease";
         this.style.transform = "translateY(0px) scale(1)";
       };
-      const onLeave = function () {
+      const onLeave = function (this: HTMLElement) {
         this.style.transition = "transform 0.3s ease";
         this.style.transform = "translateY(0px) scale(1)";
       };
@@ -30,38 +30,40 @@ export default function Home() {
       };
     }
 
-    const cleanups = [];
-    document.querySelectorAll(".btn-bounce").forEach((el) => cleanups.push(applyBounce(el)));
+    const cleanups: Array<(() => void) | undefined> = [];
+    document
+      .querySelectorAll<HTMLElement>(".btn-bounce")
+      .forEach((el) => cleanups.push(applyBounce(el)));
 
     // SIMULATEUR DE TARIF
-    const simLevel = document.getElementById("sim-level");
-    const simHours = document.getElementById("sim-hours");
+    const simLevel = document.getElementById("sim-level") as HTMLSelectElement | null;
+    const simHours = document.getElementById("sim-hours") as HTMLInputElement | null;
     const simHourOut = document.getElementById("sim-hour");
     const simWeekOut = document.getElementById("sim-week");
     const simMonthOut = document.getElementById("sim-month");
     const simEngLabel = document.getElementById("sim-engagement-label");
     const simEngTotal = document.getElementById("sim-engagement-total");
     const simEngNote = document.getElementById("sim-engagement-note");
-    const simBadges = document.querySelectorAll(".sim-badge");
+    const simBadges = document.querySelectorAll<HTMLElement>(".sim-badge");
 
     let selectedMonths = 1;
     let selectedDiscount = 0;
     let selectedLabel = "Mensuel";
 
-    function fmt(n) {
+    function fmt(n: number) {
       return Math.round(n).toLocaleString("fr-FR") + " F";
     }
 
-    function setBadgeActive(btn) {
+    function setBadgeActive(btn: HTMLElement | null) {
       simBadges.forEach((b) => {
-        const c = b.getAttribute("data-color");
+        const c = b.getAttribute("data-color") || "";
         b.style.background = c + "10";
         b.style.color = c;
         b.style.border = "1.5px solid " + c + "40";
         b.style.boxShadow = "none";
       });
       if (btn) {
-        const c2 = btn.getAttribute("data-color");
+        const c2 = btn.getAttribute("data-color") || "";
         btn.style.background = c2;
         btn.style.color = "#fff";
         btn.style.border = "1.5px solid " + c2;
@@ -75,7 +77,7 @@ export default function Home() {
       let hours = parseInt(simHours.value, 10) || 0;
       if (hours < 1) hours = 1;
       if (hours > 12) hours = 12;
-      simHours.value = hours;
+      simHours.value = String(hours);
 
       const weekly = rate * hours;
       const monthly = weekly * 4;
@@ -104,12 +106,12 @@ export default function Home() {
       simHours.addEventListener("input", calcSim);
     }
 
-    const badgeHandlers = [];
+    const badgeHandlers: Array<[HTMLElement, () => void]> = [];
     simBadges.forEach((btn) => {
       const handler = () => {
-        selectedMonths = parseInt(btn.getAttribute("data-months"), 10) || 1;
-        selectedDiscount = parseInt(btn.getAttribute("data-discount"), 10) || 0;
-        selectedLabel = btn.textContent.split(" — ")[0];
+        selectedMonths = parseInt(btn.getAttribute("data-months") || "1", 10) || 1;
+        selectedDiscount = parseInt(btn.getAttribute("data-discount") || "0", 10) || 0;
+        selectedLabel = (btn.textContent || "").split(" — ")[0];
         setBadgeActive(btn);
         calcSim();
       };
@@ -125,8 +127,8 @@ export default function Home() {
     // MENU HAMBURGER MOBILE
     const hbtn = document.getElementById("hamburger-btn");
     const menu = document.getElementById("mobile-menu");
-    let menuLinkHandlers = [];
-    let hamburgerHandler;
+    let menuLinkHandlers: Array<[HTMLAnchorElement, () => void]> = [];
+    let hamburgerHandler: (() => void) | undefined;
     if (hbtn && menu) {
       hamburgerHandler = () => {
         const isOpen = menu.classList.toggle("open");
@@ -135,7 +137,7 @@ export default function Home() {
       };
       hbtn.addEventListener("click", hamburgerHandler);
 
-      menu.querySelectorAll("a").forEach((link) => {
+      menu.querySelectorAll<HTMLAnchorElement>("a").forEach((link) => {
         const linkHandler = () => {
           menu.classList.remove("open");
           hbtn.classList.remove("open");
