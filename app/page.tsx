@@ -474,8 +474,8 @@ export default function Home() {
                 levels: [
                   { name: "6ème - 4ème", price: "50 000" },
                   { name: "3ème (BEPC)", price: "60 000" },
-                  { name: "Seconde - Première", price: "60 000" },
-                  { name: "Terminale (BAC)", price: "65 000" },
+                  { name: "Seconde - Première", price: "70 000" },
+                  { name: "Terminale (BAC)", price: "85 000" },
                 ],
                 features: ["Mathématiques", "Français", "Sciences selon le niveau", "Fiches de cours modernes", "Learnly : jeux, défis & quiz", "Exercices adaptés au niveau de l'élève", "Enseignant dédié", "Suivi personnalisé", "Rapport mensuel aux parents détaillé", "Corrections illimitées"],
                 popular: true,
