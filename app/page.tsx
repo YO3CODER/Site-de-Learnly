@@ -427,27 +427,27 @@ export default function Home() {
                 level: "Primaire",
                 priceRange: "40 000 - 50 000",
                 color: "#4db6f5", shadow: "#2193d3",
-                sub: "CP au CM2 · 2 séances/semaine · 4h",
+                sub: "CP au CM2 · 3 séances/semaine · 4h",
                 levels: [
                   { name: "CP - CE1", price: "40 000" },
                   { name: "CE2 - CM1", price: "45 000" },
                   { name: "CM2", price: "50 000" },
                 ],
-                features: ["Mathématiques", "Lecture et écriture", "Sciences de la vie", "Histoire et géographie", "1 enseignant dédié", "Cours individuel", "Fiches modernes personnalisées", "Accès à la plateforme Learnly", "Jeux, défis et quiz", "Suivi de progression", "Rapport aux parents", "Formation vidéo"],
+                features: ["Mathématiques", "Français", "Sciences selon le niveau", "Fiches de cours modernes", "Learnly : jeux, défis & quiz", "Exercices adaptés au niveau de l'élève", "Enseignant dédié", "Suivi personnalisé", "Rapport mensuel aux parents détaillé"],
                 popular: false,
               },
               {
                 level: "Secondaire",
                 priceRange: "50 000 - 65 000",
                 color: "#ff9800", shadow: "#e65100",
-                sub: "Collège & Lycée · 2 séances/semaine · 4h",
+                sub: "Collège & Lycée · 3 séances/semaine · 4h",
                 levels: [
                   { name: "6ème - 4ème", price: "50 000" },
                   { name: "3ème (BEPC)", price: "55 000" },
                   { name: "Seconde - Première", price: "60 000" },
                   { name: "Terminale (BAC)", price: "65 000" },
                 ],
-                features: ["Maths avancées", "Physique-Chimie", "SVT", "Français & Littérature", "Anglais", "Prépa BEPC et BAC", "1 enseignant dédié", "Cours individuel", "Fiches modernes personnalisées", "Accès à la plateforme Learnly", "Jeux, défis et quiz", "Suivi de progression", "Rapport aux parents", "Corrections illimitées", "Formation vidéo"],
+                features: ["Mathématiques", "Français", "Sciences selon le niveau", "Fiches de cours modernes", "Learnly : jeux, défis & quiz", "Exercices adaptés au niveau de l'élève", "Enseignant dédié", "Suivi personnalisé", "Rapport mensuel aux parents détaillé", "Corrections illimitées"],
                 popular: true,
               },
               {
@@ -455,7 +455,7 @@ export default function Home() {
                 priceRange: null,
                 price: "60 000",
                 color: "#4caf50", shadow: "#2e7d32",
-                sub: "Bases au pro · 2 séances/semaine · 4h",
+                sub: "Bases au pro · 3 séances/semaine · 4h",
                 levels: null,
                 features: ["Bases de l'informatique", "Python", "HTML, CSS, JS", "React & Next.js", "Node.js & Neon (BDD)", "Git & bonnes pratiques", "Projets réels", "D'autres langages", "Formation vidéo"],
                 popular: false,
@@ -489,6 +489,7 @@ export default function Home() {
                       ))}
                     </div>
                   )}
+                  <p style={{ fontWeight: 900, fontSize: 12, textTransform: "uppercase", letterSpacing: 1.5, color: "#9ca3af", margin: "0 0 12px" }}>Inclus :</p>
                   <ul style={{ listStyle: "none", padding: 0, margin: "0 0 24px" }}>
                     {features.map(f => (
                       <li key={f} style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 10, fontSize: 14 }}>
