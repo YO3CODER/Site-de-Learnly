@@ -425,29 +425,29 @@ export default function Home() {
             {[
               {
                 level: "Primaire",
-                priceRange: "20 000 - 30 000",
+                priceRange: "40 000 - 50 000",
                 color: "#4db6f5", shadow: "#2193d3",
                 sub: "CP au CM2 · 2 séances/semaine · 4h",
                 levels: [
-                  { name: "CP - CE1", price: "20 000" },
-                  { name: "CE2 - CM1", price: "25 000" },
-                  { name: "CM2", price: "30 000" },
+                  { name: "CP - CE1", price: "40 000" },
+                  { name: "CE2 - CM1", price: "45 000" },
+                  { name: "CM2", price: "50 000" },
                 ],
-                features: ["Mathématiques", "Lecture et écriture", "Sciences de la vie", "Histoire et géographie", "1 enseignant dédié", "Rapport mensuel parents", "Formation vidéo"],
+                features: ["Mathématiques", "Lecture et écriture", "Sciences de la vie", "Histoire et géographie", "1 enseignant dédié", "Cours individuel", "Fiches modernes personnalisées", "Accès à la plateforme Learnly", "Jeux, défis et quiz", "Suivi de progression", "Rapport aux parents", "Formation vidéo"],
                 popular: false,
               },
               {
                 level: "Secondaire",
-                priceRange: "35 000 - 55 000",
+                priceRange: "50 000 - 65 000",
                 color: "#ff9800", shadow: "#e65100",
                 sub: "Collège & Lycée · 2 séances/semaine · 4h",
                 levels: [
-                  { name: "6ème - 4ème", price: "35 000" },
-                  { name: "3ème (BEPC)", price: "40 000" },
-                  { name: "Seconde - Première", price: "50 000" },
-                  { name: "Terminale (BAC)", price: "55 000" },
+                  { name: "6ème - 4ème", price: "50 000" },
+                  { name: "3ème (BEPC)", price: "55 000" },
+                  { name: "Seconde - Première", price: "60 000" },
+                  { name: "Terminale (BAC)", price: "65 000" },
                 ],
-                features: ["Maths avancées", "Physique-Chimie", "SVT", "Français & Littérature", "Anglais", "Prépa BEPC et BAC", "1 enseignant dédié", "Corrections illimitées", "Formation vidéo"],
+                features: ["Maths avancées", "Physique-Chimie", "SVT", "Français & Littérature", "Anglais", "Prépa BEPC et BAC", "1 enseignant dédié", "Cours individuel", "Fiches modernes personnalisées", "Accès à la plateforme Learnly", "Jeux, défis et quiz", "Suivi de progression", "Rapport aux parents", "Corrections illimitées", "Formation vidéo"],
                 popular: true,
               },
               {
@@ -588,7 +588,7 @@ export default function Home() {
             </div>
             {[
               { title: "Plateforme", links: ["Fonctionnalités", "Cours disponibles", "Classement", "Quêtes"] },
-              { title: "Cours privés", links: ["Primaire — dès 20 000 FCFA", "Secondaire — dès 35 000 FCFA", "Dev — 60 000 FCFA", "Nous contacter"] },
+              { title: "Cours privés", links: ["Primaire — dès 40 000 FCFA", "Secondaire — dès 50 000 FCFA", "Dev — 60 000 FCFA", "Nous contacter"] },
               { title: "Support", links: ["FAQ", "Contact", "Confidentialité", "CGU"] },
             ].map(({ title, links }) => (
               <div key={title}>
