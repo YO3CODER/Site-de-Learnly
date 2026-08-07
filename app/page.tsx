@@ -427,7 +427,7 @@ export default function Home() {
                 level: "Primaire",
                 priceRange: "40 000 - 50 000",
                 color: "#4db6f5", shadow: "#2193d3",
-                sub: "CP au CM2 · 3 séances/semaine · 4h",
+                sub: "CP au CM2 · 3 séances/semaine",
                 levels: [
                   { name: "CP - CE1", price: "40 000" },
                   { name: "CE2 - CM1", price: "45 000" },
@@ -440,7 +440,7 @@ export default function Home() {
                 level: "Secondaire",
                 priceRange: "50 000 - 65 000",
                 color: "#ff9800", shadow: "#e65100",
-                sub: "Collège & Lycée · 3 séances/semaine · 4h",
+                sub: "Collège & Lycée · 3 séances/semaine",
                 levels: [
                   { name: "6ème - 4ème", price: "50 000" },
                   { name: "3ème (BEPC)", price: "55 000" },
@@ -455,7 +455,7 @@ export default function Home() {
                 priceRange: null,
                 price: "60 000",
                 color: "#4caf50", shadow: "#2e7d32",
-                sub: "Bases au pro · 3 séances/semaine · 4h",
+                sub: "Bases au pro · 3 séances/semaine",
                 levels: null,
                 features: ["Bases de l'informatique", "Python", "HTML, CSS, JS", "React & Next.js", "Node.js & Neon (BDD)", "Git & bonnes pratiques", "Projets réels", "D'autres langages", "Formation vidéo"],
                 popular: false,
@@ -676,4 +676,4 @@ export default function Home() {
 
     </div>
   );
-}   
+}
