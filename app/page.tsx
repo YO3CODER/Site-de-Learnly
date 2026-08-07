@@ -468,7 +468,7 @@ export default function Home() {
               },
               {
                 level: "Secondaire",
-                priceRange: "50 000 - 65 000",
+                priceRange: "50 000 - 85 000",
                 color: "#ff9800", shadow: "#e65100",
                 sub: "Collège & Lycée · 3 séances/semaine",
                 levels: [
