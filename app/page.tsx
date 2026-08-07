@@ -430,6 +430,77 @@ export default function Home() {
         </div>
       </section>
 
+      {/* SIMULATEUR */}
+      <section id="simulateur" style={{ background: "#fff", padding: "80px 20px" }}>
+        <div style={{ maxWidth: 760, margin: "0 auto" }}>
+          <p style={{ textAlign: "center", fontSize: 12, fontWeight: 900, letterSpacing: 4, color: "#4db6f5", textTransform: "uppercase", marginBottom: 12 }}>Simulateur</p>
+          <h2 style={{ textAlign: "center", fontSize: "clamp(24px, 4vw, 44px)", fontWeight: 900, color: "#1a1a1a", marginBottom: 14, letterSpacing: -0.5 }}>
+            calcule ton tarif
+          </h2>
+          <p style={{ textAlign: "center", color: "#6b7280", fontSize: 17, marginBottom: 40, maxWidth: 520, marginLeft: "auto", marginRight: "auto", lineHeight: 1.6 }}>
+            Choisis le niveau et le nombre d&apos;heures par semaine pour voir le prix à l&apos;heure, à la semaine, au mois et à l&apos;année.
+          </p>
+
+          <div style={{ background: "#f9fafb", border: "2px solid #e5e7eb", borderRadius: 24, padding: "32px 28px" }}>
+            <div className="sim-inputs" style={{ display: "grid", gridTemplateColumns: "1.4fr 1fr", gap: 20, marginBottom: 28 }}>
+              <div>
+                <label htmlFor="sim-level" style={{ display: "block", fontWeight: 800, fontSize: 13, color: "#374151", marginBottom: 8 }}>Niveau</label>
+                <select id="sim-level" style={{ width: "100%", padding: "12px 14px", borderRadius: 12, border: "2px solid #e5e7eb", fontSize: 14, fontWeight: 700, color: "#1a1a1a", background: "#fff" }}>
+                  <option value="5000">CP - CE1 — 5 000 F/h</option>
+                  <option value="5500">CE2 - CM1 — 5 500 F/h</option>
+                  <option value="6000">CM2 — 6 000 F/h</option>
+                  <option value="6500">6ème - 4ème — 6 500 F/h</option>
+                  <option value="7000">3ème (BEPC) — 7 000 F/h</option>
+                  <option value="7500">Seconde - Première — 7 500 F/h</option>
+                  <option value="8500">Terminale (BAC) — 8 500 F/h</option>
+                  <option value="8000">Dev informatique — 8 000 F/h</option>
+                </select>
+              </div>
+              <div>
+                <label htmlFor="sim-hours" style={{ display: "block", fontWeight: 800, fontSize: 13, color: "#374151", marginBottom: 8 }}>Heures / semaine</label>
+                <input id="sim-hours" type="number" min="1" max="12" step="1" defaultValue={3} style={{ width: "100%", padding: "12px 14px", borderRadius: 12, border: "2px solid #e5e7eb", fontSize: 14, fontWeight: 700, color: "#1a1a1a", background: "#fff" }} />
+              </div>
+            </div>
+
+            <div className="grid-4" style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: 12 }}>
+              <div style={{ background: "#fff", border: "2px solid #e5e7eb", borderRadius: 16, padding: "18px 14px", textAlign: "center" }}>
+                <p style={{ fontSize: 11, fontWeight: 900, letterSpacing: 1.5, textTransform: "uppercase", color: "#9ca3af", margin: "0 0 6px" }}>Heure</p>
+                <p id="sim-hour" style={{ fontWeight: 900, fontSize: 17, color: "#4db6f5", margin: 0 }}>—</p>
+              </div>
+              <div style={{ background: "#fff", border: "2px solid #e5e7eb", borderRadius: 16, padding: "18px 14px", textAlign: "center" }}>
+                <p style={{ fontSize: 11, fontWeight: 900, letterSpacing: 1.5, textTransform: "uppercase", color: "#9ca3af", margin: "0 0 6px" }}>Semaine</p>
+                <p id="sim-week" style={{ fontWeight: 900, fontSize: 17, color: "#4db6f5", margin: 0 }}>—</p>
+              </div>
+              <div style={{ background: "#fff", border: "2px solid #e5e7eb", borderRadius: 16, padding: "18px 14px", textAlign: "center" }}>
+                <p style={{ fontSize: 11, fontWeight: 900, letterSpacing: 1.5, textTransform: "uppercase", color: "#9ca3af", margin: "0 0 6px" }}>Mois</p>
+                <p id="sim-month" style={{ fontWeight: 900, fontSize: 17, color: "#4db6f5", margin: 0 }}>—</p>
+              </div>
+              <div style={{ background: "#fff", border: "3px solid #4db6f5", borderRadius: 16, padding: "18px 14px", textAlign: "center" }}>
+                <p style={{ fontSize: 11, fontWeight: 900, letterSpacing: 1.5, textTransform: "uppercase", color: "#4db6f5", margin: "0 0 6px" }}>Année (-15%)</p>
+                <p id="sim-year" style={{ fontWeight: 900, fontSize: 17, color: "#4db6f5", margin: 0 }}>—</p>
+                <p id="sim-year-base" style={{ fontSize: 11, color: "#9ca3af", textDecoration: "line-through", margin: "4px 0 0" }}>—</p>
+              </div>
+            </div>
+
+            <div style={{ marginTop: 28 }}>
+              <p style={{ fontWeight: 900, fontSize: 12, textTransform: "uppercase", letterSpacing: 1.5, color: "#9ca3af", marginBottom: 12 }}>Réductions selon l&apos;engagement</p>
+              <div style={{ display: "flex", flexWrap: "wrap", gap: 10 }}>
+                {[
+                  { label: "Mensuel — tarif standard", color: "#6b7280" },
+                  { label: "Trimestriel (3 mois) — -5%", color: "#4db6f5" },
+                  { label: "Semestriel (6 mois) — -10%", color: "#ff9800" },
+                  { label: "Annuel (12 mois) — -15%", color: "#4caf50" },
+                ].map(({ label, color }) => (
+                  <span key={label} style={{ background: `${color}10`, color, border: `1.5px solid ${color}40`, fontWeight: 800, fontSize: 13, padding: "9px 16px", borderRadius: 100, whiteSpace: "nowrap" }}>
+                    {label}
+                  </span>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* PRICING */}
       <section id="tarifs" style={{ background: "#f9fafb", padding: "80px 20px", borderTop: "3px solid #e5e7eb" }}>
         <div style={{ maxWidth: 1100, margin: "0 auto" }}>
@@ -648,6 +719,7 @@ export default function Home() {
           .hero-image { display: flex !important; width: 100%; max-width: 340px; margin: 0 auto; }
           .two-col { grid-template-columns: 1fr !important; gap: 40px !important; }
           .grid-3 { grid-template-columns: 1fr 1fr !important; }
+          .grid-4 { grid-template-columns: 1fr 1fr !important; }
           .footer-grid { grid-template-columns: 1fr 1fr !important; }
         }
         @media (max-width: 600px) {
@@ -655,6 +727,8 @@ export default function Home() {
           .desktop-cta { display: none !important; }
           #hamburger-btn { display: flex !important; }
           .grid-3 { grid-template-columns: 1fr !important; }
+          .grid-4 { grid-template-columns: 1fr 1fr !important; }
+          .sim-inputs { grid-template-columns: 1fr !important; }
           .footer-grid { grid-template-columns: 1fr !important; }
           .gif-badge { display: inline-block !important; }
           .hero-image { max-width: 280px !important; }
@@ -685,6 +759,46 @@ export default function Home() {
             });
           }
           document.querySelectorAll('.btn-bounce').forEach(applyBounce);
+
+          // SIMULATEUR DE TARIF
+          var simLevel = document.getElementById('sim-level');
+          var simHours = document.getElementById('sim-hours');
+          var simHourOut = document.getElementById('sim-hour');
+          var simWeekOut = document.getElementById('sim-week');
+          var simMonthOut = document.getElementById('sim-month');
+          var simYearOut = document.getElementById('sim-year');
+          var simYearBaseOut = document.getElementById('sim-year-base');
+
+          function fmt(n) {
+            return Math.round(n).toLocaleString('fr-FR') + ' F';
+          }
+
+          function calcSim() {
+            if (!simLevel || !simHours) return;
+            var rate = parseInt(simLevel.value, 10) || 0;
+            var hours = parseInt(simHours.value, 10) || 0;
+            if (hours < 1) hours = 1;
+            if (hours > 12) hours = 12;
+            simHours.value = hours;
+
+            var weekly = rate * hours;
+            var monthly = weekly * 4;
+            var yearlyBase = monthly * 12;
+            var yearlyDiscounted = yearlyBase * 0.85;
+
+            simHourOut.textContent = fmt(rate);
+            simWeekOut.textContent = fmt(weekly);
+            simMonthOut.textContent = fmt(monthly);
+            simYearOut.textContent = fmt(yearlyDiscounted);
+            simYearBaseOut.textContent = fmt(yearlyBase);
+          }
+
+          if (simLevel && simHours) {
+            simLevel.addEventListener('change', calcSim);
+            simHours.addEventListener('input', calcSim);
+            calcSim();
+          }
+
           var btn = document.getElementById('hamburger-btn');
           var menu = document.getElementById('mobile-menu');
           if (btn && menu) {
