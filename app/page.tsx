@@ -476,24 +476,32 @@ export default function Home() {
                 <p id="sim-month" style={{ fontWeight: 900, fontSize: 17, color: "#4db6f5", margin: 0 }}>—</p>
               </div>
               <div style={{ background: "#fff", border: "3px solid #4db6f5", borderRadius: 16, padding: "18px 14px", textAlign: "center" }}>
-                <p style={{ fontSize: 11, fontWeight: 900, letterSpacing: 1.5, textTransform: "uppercase", color: "#4db6f5", margin: "0 0 6px" }}>Année (-15%)</p>
-                <p id="sim-year" style={{ fontWeight: 900, fontSize: 17, color: "#4db6f5", margin: 0 }}>—</p>
-                <p id="sim-year-base" style={{ fontSize: 11, color: "#9ca3af", textDecoration: "line-through", margin: "4px 0 0" }}>—</p>
+                <p id="sim-engagement-label" style={{ fontSize: 11, fontWeight: 900, letterSpacing: 1.5, textTransform: "uppercase", color: "#4db6f5", margin: "0 0 6px" }}>Mensuel</p>
+                <p id="sim-engagement-total" style={{ fontWeight: 900, fontSize: 17, color: "#4db6f5", margin: 0 }}>—</p>
+                <p id="sim-engagement-note" style={{ fontSize: 11, color: "#9ca3af", margin: "4px 0 0" }}>—</p>
               </div>
             </div>
 
             <div style={{ marginTop: 28 }}>
-              <p style={{ fontWeight: 900, fontSize: 12, textTransform: "uppercase", letterSpacing: 1.5, color: "#9ca3af", marginBottom: 12 }}>Réductions selon l&apos;engagement</p>
-              <div style={{ display: "flex", flexWrap: "wrap", gap: 10 }}>
+              <p style={{ fontWeight: 900, fontSize: 12, textTransform: "uppercase", letterSpacing: 1.5, color: "#9ca3af", marginBottom: 12 }}>Choisis ton engagement</p>
+              <div id="sim-badges" style={{ display: "flex", flexWrap: "wrap", gap: 10 }}>
                 {[
-                  { label: "Mensuel — tarif standard", color: "#6b7280" },
-                  { label: "Trimestriel (3 mois) — -5%", color: "#4db6f5" },
-                  { label: "Semestriel (6 mois) — -10%", color: "#ff9800" },
-                  { label: "Annuel (12 mois) — -15%", color: "#4caf50" },
-                ].map(({ label, color }) => (
-                  <span key={label} style={{ background: `${color}10`, color, border: `1.5px solid ${color}40`, fontWeight: 800, fontSize: 13, padding: "9px 16px", borderRadius: 100, whiteSpace: "nowrap" }}>
+                  { label: "Mensuel — tarif standard", color: "#6b7280", months: 1, discount: 0 },
+                  { label: "Trimestriel (3 mois) — -5%", color: "#4db6f5", months: 3, discount: 5 },
+                  { label: "Semestriel (6 mois) — -10%", color: "#ff9800", months: 6, discount: 10 },
+                  { label: "Annuel (12 mois) — -15%", color: "#4caf50", months: 12, discount: 15 },
+                ].map(({ label, color, months, discount }) => (
+                  <button
+                    key={label}
+                    type="button"
+                    className="sim-badge"
+                    data-months={months}
+                    data-discount={discount}
+                    data-color={color}
+                    style={{ background: `${color}10`, color, border: `1.5px solid ${color}40`, fontWeight: 800, fontSize: 13, padding: "9px 16px", borderRadius: 100, whiteSpace: "nowrap", cursor: "pointer" }}
+                  >
                     {label}
-                  </span>
+                  </button>
                 ))}
               </div>
             </div>
@@ -742,7 +750,7 @@ export default function Home() {
 
       {/* SCRIPTS */}
       <script dangerouslySetInnerHTML={{ __html: `
-        document.addEventListener('DOMContentLoaded', function() {
+        function learnlyInit() {
           function applyBounce(el) {
             el.addEventListener('mousedown', function() {
               this.style.transition = 'transform 0.1s ease, box-shadow 0.1s ease';
@@ -766,11 +774,35 @@ export default function Home() {
           var simHourOut = document.getElementById('sim-hour');
           var simWeekOut = document.getElementById('sim-week');
           var simMonthOut = document.getElementById('sim-month');
-          var simYearOut = document.getElementById('sim-year');
-          var simYearBaseOut = document.getElementById('sim-year-base');
+          var simEngLabel = document.getElementById('sim-engagement-label');
+          var simEngTotal = document.getElementById('sim-engagement-total');
+          var simEngNote = document.getElementById('sim-engagement-note');
+          var simBadges = document.querySelectorAll('.sim-badge');
+
+          var selectedMonths = 1;
+          var selectedDiscount = 0;
+          var selectedLabel = 'Mensuel';
+          var selectedColor = '#6b7280';
 
           function fmt(n) {
             return Math.round(n).toLocaleString('fr-FR') + ' F';
+          }
+
+          function setBadgeActive(btn) {
+            simBadges.forEach(function(b) {
+              var c = b.getAttribute('data-color');
+              b.style.background = c + '10';
+              b.style.color = c;
+              b.style.border = '1.5px solid ' + c + '40';
+              b.style.boxShadow = 'none';
+            });
+            if (btn) {
+              var c2 = btn.getAttribute('data-color');
+              btn.style.background = c2;
+              btn.style.color = '#fff';
+              btn.style.border = '1.5px solid ' + c2;
+              btn.style.boxShadow = '0 3px 0 rgba(0,0,0,0.15)';
+            }
           }
 
           function calcSim() {
@@ -783,21 +815,45 @@ export default function Home() {
 
             var weekly = rate * hours;
             var monthly = weekly * 4;
-            var yearlyBase = monthly * 12;
-            var yearlyDiscounted = yearlyBase * 0.85;
 
             simHourOut.textContent = fmt(rate);
             simWeekOut.textContent = fmt(weekly);
             simMonthOut.textContent = fmt(monthly);
-            simYearOut.textContent = fmt(yearlyDiscounted);
-            simYearBaseOut.textContent = fmt(yearlyBase);
+
+            var totalBase = monthly * selectedMonths;
+            var totalDiscounted = totalBase * (1 - selectedDiscount / 100);
+            var monthlyEquivalent = totalDiscounted / selectedMonths;
+            var savings = totalBase - totalDiscounted;
+
+            simEngLabel.textContent = selectedLabel;
+            simEngTotal.textContent = fmt(totalDiscounted);
+            if (selectedDiscount > 0) {
+              simEngNote.textContent = fmt(monthlyEquivalent) + ' / mois — économie ' + fmt(savings);
+            } else {
+              simEngNote.textContent = fmt(monthlyEquivalent) + ' / mois';
+            }
           }
 
           if (simLevel && simHours) {
             simLevel.addEventListener('change', calcSim);
             simHours.addEventListener('input', calcSim);
-            calcSim();
           }
+
+          simBadges.forEach(function(btn) {
+            btn.addEventListener('click', function() {
+              selectedMonths = parseInt(btn.getAttribute('data-months'), 10) || 1;
+              selectedDiscount = parseInt(btn.getAttribute('data-discount'), 10) || 0;
+              selectedColor = btn.getAttribute('data-color');
+              selectedLabel = btn.textContent.split(' — ')[0];
+              setBadgeActive(btn);
+              calcSim();
+            });
+          });
+
+          if (simBadges.length) {
+            setBadgeActive(simBadges[0]);
+          }
+          calcSim();
 
           var btn = document.getElementById('hamburger-btn');
           var menu = document.getElementById('mobile-menu');
@@ -815,7 +871,13 @@ export default function Home() {
               });
             });
           }
-        });
+        }
+
+        if (document.readyState === 'loading') {
+          document.addEventListener('DOMContentLoaded', learnlyInit);
+        } else {
+          learnlyInit();
+        }
       `}} />
 
     </div>
