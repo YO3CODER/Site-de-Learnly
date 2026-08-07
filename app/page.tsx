@@ -473,7 +473,7 @@ export default function Home() {
                 sub: "Collège & Lycée · 3 séances/semaine",
                 levels: [
                   { name: "6ème - 4ème", price: "50 000" },
-                  { name: "3ème (BEPC)", price: "55 000" },
+                  { name: "3ème (BEPC)", price: "60 000" },
                   { name: "Seconde - Première", price: "60 000" },
                   { name: "Terminale (BAC)", price: "65 000" },
                 ],
