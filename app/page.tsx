@@ -455,27 +455,27 @@ export default function Home() {
             {[
               {
                 level: "Primaire",
-                priceRange: "40 000 - 50 000",
+                priceRange: "60 000 - 72 000",
                 color: "#4db6f5", shadow: "#2193d3",
                 sub: "CP au CM2 · 3 séances/semaine",
                 levels: [
-                  { name: "CP - CE1", price: "40 000" },
-                  { name: "CE2 - CM1", price: "45 000" },
-                  { name: "CM2", price: "50 000" },
+                  { name: "CP - CE1", price: "60 000" },
+                  { name: "CE2 - CM1", price: "66 000" },
+                  { name: "CM2", price: "72 000" },
                 ],
                 features: ["Mathématiques", "Français", "Sciences selon le niveau", "Fiches de cours modernes", "Learnly : jeux, défis & quiz", "Exercices adaptés au niveau de l'élève", "Enseignant dédié", "Suivi personnalisé", "Rapport mensuel aux parents détaillé"],
                 popular: false,
               },
               {
                 level: "Secondaire",
-                priceRange: "50 000 - 85 000",
+                priceRange: "78 000 - 102 000",
                 color: "#ff9800", shadow: "#e65100",
                 sub: "Collège & Lycée · 3 séances/semaine",
                 levels: [
-                  { name: "6ème - 4ème", price: "50 000" },
-                  { name: "3ème (BEPC)", price: "60 000" },
-                  { name: "Seconde - Première", price: "70 000" },
-                  { name: "Terminale (BAC)", price: "85 000" },
+                  { name: "6ème - 4ème", price: "78 000" },
+                  { name: "3ème (BEPC)", price: "84 000" },
+                  { name: "Seconde - Première", price: "90 000" },
+                  { name: "Terminale (BAC)", price: "102 000" },
                 ],
                 features: ["Mathématiques", "Français", "Sciences selon le niveau", "Fiches de cours modernes", "Learnly : jeux, défis & quiz", "Exercices adaptés au niveau de l'élève", "Enseignant dédié", "Suivi personnalisé", "Rapport mensuel aux parents détaillé", "Corrections illimitées"],
                 popular: true,
@@ -483,7 +483,7 @@ export default function Home() {
               {
                 level: "Dev informatique",
                 priceRange: null,
-                price: "60 000",
+                price: "96 000",
                 color: "#4caf50", shadow: "#2e7d32",
                 sub: "Bases au pro · 3 séances/semaine",
                 levels: null,
@@ -619,7 +619,7 @@ export default function Home() {
             </div>
             {[
               { title: "Plateforme", links: ["Fonctionnalités", "Cours disponibles", "Classement", "Quêtes"] },
-              { title: "Cours privés", links: ["Primaire — dès 40 000 FCFA", "Secondaire — dès 50 000 FCFA", "Dev — 60 000 FCFA", "Nous contacter"] },
+              { title: "Cours privés", links: ["Primaire — dès 60 000 FCFA", "Secondaire — dès 78 000 FCFA", "Dev — 96 000 FCFA", "Nous contacter"] },
               { title: "Support", links: ["FAQ", "Contact", "Confidentialité", "CGU"] },
             ].map(({ title, links }) => (
               <div key={title}>
