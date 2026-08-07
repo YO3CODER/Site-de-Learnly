@@ -342,6 +342,36 @@ export default function Home() {
         </div>
       </section>
 
+      {/* BIENFAITS */}
+      <section style={{ background: "#f9fafb", padding: "80px 20px", borderTop: "3px solid #e5e7eb", borderBottom: "3px solid #e5e7eb" }}>
+        <div style={{ maxWidth: 1100, margin: "0 auto" }}>
+          <p style={{ textAlign: "center", fontSize: 12, fontWeight: 900, letterSpacing: 4, color: "#4db6f5", textTransform: "uppercase", marginBottom: 12 }}>Bienfaits</p>
+          <h2 style={{ textAlign: "center", fontSize: "clamp(24px, 4vw, 44px)", fontWeight: 900, color: "#1a1a1a", marginBottom: 14, letterSpacing: -0.5 }}>
+            ce que Learnly apporte à chaque élève
+          </h2>
+          <p style={{ textAlign: "center", color: "#6b7280", fontSize: 17, marginBottom: 56, maxWidth: 560, marginLeft: "auto", marginRight: "auto", lineHeight: 1.6 }}>
+            Au-delà des notes, Learnly construit des habitudes et une confiance qui durent toute la scolarité.
+          </p>
+
+          <div className="grid-3" style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 20 }}>
+            {[
+              { title: "Meilleurs résultats scolaires", desc: "Des leçons ciblées et une progression suivie qui font remonter les notes durablement.", color: "#4db6f5" },
+              { title: "Confiance en soi", desc: "Chaque réussite est valorisée, ce qui aide l'élève à croire en ses capacités.", color: "#ff9800" },
+              { title: "Autonomie dans l'apprentissage", desc: "L'élève apprend à organiser son temps et à progresser par lui-même, à son rythme.", color: "#4caf50" },
+              { title: "Motivation durable", desc: "Le classement, les séries et les défis entretiennent l'envie d'apprendre jour après jour.", color: "#f59e0b" },
+              { title: "Compétences numériques", desc: "Une pratique naturelle des outils numériques, utile bien au-delà de la scolarité.", color: "#9c27b0" },
+              { title: "Réduction du stress scolaire", desc: "Des leçons courtes et un accompagnement personnalisé qui allègent la pression des examens.", color: "#ec4899" },
+            ].map(({ title, desc, color }) => (
+              <div key={title} className="card-hover" style={{ background: "#fff", borderRadius: 20, padding: "28px 24px", border: "2px solid #e5e7eb" }}>
+                <div style={{ width: 40, height: 5, borderRadius: 3, background: color, marginBottom: 18 }} />
+                <h3 style={{ fontWeight: 900, fontSize: 16, color: "#1a1a1a", margin: "0 0 10px" }}>{title}</h3>
+                <p style={{ color: "#6b7280", fontSize: 13, lineHeight: 1.65, margin: 0 }}>{desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* TEMOIGNAGES */}
       <section style={{ background: "#fff", padding: "80px 20px" }}>
         <div style={{ maxWidth: 1100, margin: "0 auto" }}>
