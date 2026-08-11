@@ -605,14 +605,14 @@ export default function Home() {
               <div>
                 <label htmlFor="sim-level" style={{ display: "block", fontWeight: 800, fontSize: 13, color: "#374151", marginBottom: 8 }}>Niveau</label>
                 <select id="sim-level" style={{ width: "100%", padding: "12px 14px", borderRadius: 12, border: "2px solid #e5e7eb", fontSize: 14, fontWeight: 700, color: "#1a1a1a", background: "#fff" }}>
-                  <option value="5000">CP - CE1 — 5 000 F/h</option>
-                  <option value="5500">CE2 - CM1 — 5 500 F/h</option>
-                  <option value="6000">CM2 — 6 000 F/h</option>
-                  <option value="6500">6ème - 4ème — 6 500 F/h</option>
-                  <option value="7000">3ème (BEPC) — 7 000 F/h</option>
-                  <option value="7500">Seconde - Première — 7 500 F/h</option>
-                  <option value="8500">Terminale (BAC) — 8 500 F/h</option>
-                  <option value="8000">Dev informatique — 8 000 F/h</option>
+                  <option value="1833">CP - CE1 — 1 833 F/h</option>
+                  <option value="2250">CE2 - CM1 — 2 250 F/h</option>
+                  <option value="2667">CM2 — 2 667 F/h</option>
+                  <option value="2667">6ème - 4ème — 2 667 F/h</option>
+                  <option value="3083">3ème (BEPC) — 3 083 F/h</option>
+                  <option value="3500">Seconde - Première — 3 500 F/h</option>
+                  <option value="3917">Terminale (BAC) — 3 917 F/h</option>
+                  <option value="5600">Dev informatique — 5 600 F/h</option>
                 </select>
               </div>
               <div>
@@ -693,27 +693,27 @@ export default function Home() {
             {[
               {
                 level: "Primaire",
-                priceRange: "60 000 - 72 000",
+                priceRange: "22 000 - 32 000",
                 color: "#4db6f5", shadow: "#2193d3",
                 sub: "CP au CM2 · 3 séances/semaine",
                 levels: [
-                  { name: "CP - CE1", price: "60 000" },
-                  { name: "CE2 - CM1", price: "66 000" },
-                  { name: "CM2", price: "72 000" },
+                  { name: "CP - CE1", price: "22 000" },
+                  { name: "CE2 - CM1", price: "27 000" },
+                  { name: "CM2", price: "32 000" },
                 ],
                 features: ["Mathématiques", "Français", "Sciences selon le niveau", "Fiches de cours modernes", "Learnly : jeux, défis & quiz", "Exercices adaptés au niveau de l'élève", "Enseignant dédié", "Suivi personnalisé", "Rapport mensuel aux parents détaillé"],
                 popular: false,
               },
               {
                 level: "Secondaire",
-                priceRange: "78 000 - 102 000",
+                priceRange: "32 000 - 47 000",
                 color: "#ff9800", shadow: "#e65100",
                 sub: "Collège & Lycée · 3 séances/semaine",
                 levels: [
-                  { name: "6ème - 4ème", price: "78 000" },
-                  { name: "3ème (BEPC)", price: "84 000" },
-                  { name: "Seconde - Première", price: "90 000" },
-                  { name: "Terminale (BAC)", price: "102 000" },
+                  { name: "6ème - 4ème", price: "32 000" },
+                  { name: "3ème (BEPC)", price: "37 000" },
+                  { name: "Seconde - Première", price: "42 000" },
+                  { name: "Terminale (BAC)", price: "47 000" },
                 ],
                 features: ["Mathématiques", "Français", "Sciences selon le niveau", "Fiches de cours modernes", "Learnly : jeux, défis & quiz", "Exercices adaptés au niveau de l'élève", "Enseignant dédié", "Suivi personnalisé", "Rapport mensuel aux parents détaillé", "Corrections illimitées"],
                 popular: true,
@@ -721,7 +721,7 @@ export default function Home() {
               {
                 level: "Dev informatique",
                 priceRange: null,
-                price: "96 000",
+                price: "67 000",
                 color: "#4caf50", shadow: "#2e7d32",
                 sub: "Bases au pro · 3 séances/semaine",
                 levels: null,
@@ -857,7 +857,7 @@ export default function Home() {
             </div>
             {[
               { title: "Plateforme", links: ["Fonctionnalités", "Cours disponibles", "Classement", "Quêtes"] },
-              { title: "Cours privés", links: ["Primaire — dès 60 000 FCFA", "Secondaire — dès 78 000 FCFA", "Dev — 96 000 FCFA", "Nous contacter"] },
+              { title: "Cours privés", links: ["Primaire — dès 22 000 FCFA", "Secondaire — dès 32 000 FCFA", "Dev — 67 000 FCFA", "Nous contacter"] },
               { title: "Support", links: ["FAQ", "Contact", "Confidentialité", "CGU"] },
             ].map(({ title, links }) => (
               <div key={title}>
