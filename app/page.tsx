@@ -293,7 +293,7 @@ export default function Home() {
 
           <div className="hero-image animate-fade-right" style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 20 }}>
             <Image
-              src="/logolearnly.svg"
+              src="/logolearnly.png"
               alt="Hero"
               width={460}
               height={460}
@@ -444,7 +444,7 @@ export default function Home() {
               Rejoins la plateforme en quelques secondes et commence ta première leçon immédiatement — sans carte bancaire, sans engagement.
             </p>
             <div className="gif-badge" style={{ display: "inline-block" }}>
-              <Image src="/2.gif" alt="Demo" width={280} height={160} unoptimized style={{ borderRadius: 16, display: "block" }} />
+              <Image src="/personnage1.gif" alt="Demo" width={280} height={160} unoptimized style={{ borderRadius: 16, display: "block" }} />
             </div>
           </div>
 
