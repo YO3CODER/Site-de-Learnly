@@ -293,7 +293,7 @@ export default function Home() {
 
           <div className="hero-image animate-fade-right" style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 20 }}>
             <Image
-              src="/hero.svg"
+              src="/logolearnly.svg"
               alt="Hero"
               width={460}
               height={460}
