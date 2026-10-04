@@ -291,15 +291,19 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="hero-image animate-fade-right" style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 20 }}>
-            <Image
-              src="/logolearnly.png"
-              alt="Hero"
-              width={460}
-              height={460}
-              className="animate-float"
-              style={{ width: "100%", maxWidth: 460, height: "auto", filter: "drop-shadow(0 24px 48px rgba(0,0,0,0.18))" }}
-            />
+         <div
+  className="hero-image hidden md:flex animate-fade-right"
+  style={{ flexDirection: "column", alignItems: "center", gap: 20 }}
+>
+  <Image
+    src="/logolearnly.png"
+    alt="Hero"
+    width={460}
+    height={460}
+    className="animate-float"
+    style={{ width: "100%", maxWidth: 460, height: "auto", filter: "drop-shadow(0 24px 48px rgba(0,0,0,0.18))" }}
+  />
+</div>
             <div className="gif-badge animate-float-delayed">
               <Image src="/1.png" alt="En action" width={240} height={140} unoptimized style={{ borderRadius: 16, display: "block" }} />
             </div>
