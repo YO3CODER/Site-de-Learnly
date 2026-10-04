@@ -46,6 +46,9 @@ export default function Home() {
     const simEngNote = document.getElementById("sim-engagement-note");
     const simBadges = document.querySelectorAll<HTMLElement>(".sim-badge");
 
+    // Tarif mensuel minimum : rien en dessous de 25 000 F
+    const MIN_MONTHLY = 25000;
+
     let selectedMonths = 1;
     let selectedDiscount = 0;
     let selectedLabel = "Mensuel";
@@ -73,14 +76,14 @@ export default function Home() {
 
     function calcSim() {
       if (!simLevel || !simHours) return;
-      const rate = parseInt(simLevel.value, 10) || 0;
+      const rate = parseFloat(simLevel.value) || 0;
       let hours = parseInt(simHours.value, 10) || 0;
       if (hours < 1) hours = 1;
       if (hours > 12) hours = 12;
       simHours.value = String(hours);
 
-      const weekly = rate * hours;
-      const monthly = weekly * 4;
+      const monthly = Math.max(rate * hours * 4, MIN_MONTHLY);
+      const weekly = monthly / 4;
 
       if (simHourOut) simHourOut.textContent = fmt(rate);
       if (simWeekOut) simWeekOut.textContent = fmt(weekly);
@@ -291,19 +294,16 @@ export default function Home() {
             </div>
           </div>
 
-         <div
-  className="hero-image hidden md:flex animate-fade-right"
-  style={{ flexDirection: "column", alignItems: "center", gap: 20 }}
->
-  <Image
-    src="/logolearnly.png"
-    alt="Hero"
-    width={460}
-    height={460}
-    className="animate-float"
-    style={{ width: "100%", maxWidth: 460, height: "auto", filter: "drop-shadow(0 24px 48px rgba(0,0,0,0.18))" }}
-  />
-</div>
+          <div className="hero-image animate-fade-right" style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 20 }}>
+            {/* Logo : masqué en petit écran via la classe hero-logo (voir styles en bas) */}
+            <Image
+              src="/logolearnly.png"
+              alt="Hero"
+              width={460}
+              height={460}
+              className="animate-float hero-logo"
+              style={{ width: "100%", maxWidth: 460, height: "auto", filter: "drop-shadow(0 24px 48px rgba(0,0,0,0.18))" }}
+            />
             <div className="gif-badge animate-float-delayed">
               <Image src="/1.png" alt="En action" width={240} height={140} unoptimized style={{ borderRadius: 16, display: "block" }} />
             </div>
@@ -609,7 +609,7 @@ export default function Home() {
               <div>
                 <label htmlFor="sim-level" style={{ display: "block", fontWeight: 800, fontSize: 13, color: "#374151", marginBottom: 8 }}>Niveau</label>
                 <select id="sim-level" style={{ width: "100%", padding: "12px 14px", borderRadius: 12, border: "2px solid #e5e7eb", fontSize: 14, fontWeight: 700, color: "#1a1a1a", background: "#fff" }}>
-                  <option value="1833">CP - CE1 — 1 833 F/h</option>
+                  <option value="2083.33">CP - CE1 — 2 083 F/h</option>
                   <option value="2250">CE2 - CM1 — 2 250 F/h</option>
                   <option value="2667">CM2 — 2 667 F/h</option>
                   <option value="2667">6ème - 4ème — 2 667 F/h</option>
@@ -697,11 +697,11 @@ export default function Home() {
             {[
               {
                 level: "Primaire",
-                priceRange: "22 000 - 32 000",
+                priceRange: "25 000 - 32 000",
                 color: "#4db6f5", shadow: "#2193d3",
                 sub: "CP au CM2 · 3 séances/semaine",
                 levels: [
-                  { name: "CP - CE1", price: "22 000" },
+                  { name: "CP - CE1", price: "25 000" },
                   { name: "CE2 - CM1", price: "27 000" },
                   { name: "CM2", price: "32 000" },
                 ],
@@ -861,7 +861,7 @@ export default function Home() {
             </div>
             {[
               { title: "Plateforme", links: ["Fonctionnalités", "Cours disponibles", "Classement", "Quêtes"] },
-              { title: "Cours privés", links: ["Primaire — dès 22 000 FCFA", "Secondaire — dès 32 000 FCFA", "Dev — 67 000 FCFA", "Nous contacter"] },
+              { title: "Cours privés", links: ["Primaire — dès 25 000 FCFA", "Secondaire — dès 32 000 FCFA", "Dev — 67 000 FCFA", "Nous contacter"] },
               { title: "Support", links: ["FAQ", "Contact", "Confidentialité", "CGU"] },
             ].map(({ title, links }) => (
               <div key={title}>
@@ -888,6 +888,7 @@ export default function Home() {
         @media (max-width: 900px) {
           .hero-grid { grid-template-columns: 1fr !important; text-align: center; }
           .hero-image { display: flex !important; width: 100%; max-width: 340px; margin: 0 auto; }
+          .hero-logo { display: none !important; }
           .two-col { grid-template-columns: 1fr !important; gap: 40px !important; }
           .grid-3 { grid-template-columns: 1fr 1fr !important; }
           .grid-4 { grid-template-columns: 1fr 1fr !important; }
