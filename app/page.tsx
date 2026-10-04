@@ -301,7 +301,7 @@ export default function Home() {
               style={{ width: "100%", maxWidth: 460, height: "auto", filter: "drop-shadow(0 24px 48px rgba(0,0,0,0.18))" }}
             />
             <div className="gif-badge animate-float-delayed">
-              <Image src="/1.gif" alt="En action" width={240} height={140} unoptimized style={{ borderRadius: 16, display: "block" }} />
+              <Image src="/1png" alt="En action" width={240} height={140} unoptimized style={{ borderRadius: 16, display: "block" }} />
             </div>
           </div>
         </div>
