@@ -492,7 +492,7 @@ export default function Home() {
               { title: "Système XP", desc: "Gagne des points d'expérience à chaque leçon et monte de division en division.", color: "#ff9800" },
               { title: "Classement africain", desc: "Rivalise avec des apprenants de Côte d'Ivoire, du Sénégal, du Ghana et de toute l'Afrique.", color: "#f59e0b" },
               { title: "Quêtes & défis", desc: "Des missions quotidiennes et hebdomadaires pour débloquer des récompenses exclusives.", color: "#4caf50" },
-              { title: "Langues africaines", desc: "Dioula, Wolof, Twi, Yoruba — apprends les langues de chez toi que Duolingo n'enseigne pas.", color: "#4db6f5" },
+              { title: "Langues africaines", desc: "Dioula, Wolof, Twi, Yoruba — apprends les langues de chez toi.", color: "#4db6f5" },
               { title: "100% mobile", desc: "Conçu pour les smartphones africains. Fonctionne même avec une connexion limitée.", color: "#9c27b0" },
             ].map(({ title, desc, color }) => (
               <div key={title} className="card-hover" style={{ background: "#f9fafb", borderRadius: 20, padding: "28px 24px", border: "2px solid #e5e7eb", cursor: "pointer" }}>
